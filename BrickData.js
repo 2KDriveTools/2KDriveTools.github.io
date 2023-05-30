@@ -376,8 +376,8 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/86/2655.t2.png"
   },
   "2683": {
-    "name": "Monorail Top (2683)",
-    "img": "https://img.bricklink.com/ItemImage/PT/1/2683.t2.png"
+    "name": "Windscreen 6 x 6 x 1 1/3 Straight Sides",
+    "img": "https://img.bricklink.com/ItemImage/PN/13/65633.png"
   },
   "2694": {
     "name": "Windscreen 3 x 10 x 3 (2694)",
@@ -796,8 +796,8 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/9/3474.t2.png"
   },
   "3475": {
-    "name": "Engine, Smooth Small (Undetermined Type) (3475)",
-    "img": "https://img.bricklink.com/ItemImage/PT/1/3475.t2.png"
+    "name": "Small Smooth Engine with 1 x 2 Side Plate (with Axle Holders) (3475)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-small-smooth-engine-with-1-x-2-side-plate-with-axle-holders-3475-27.jpg"
   },
   "3479": {
     "name": "Tail 4 x 2 x 2 (3479)",
@@ -1024,8 +1024,8 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/3/3788.t2.png"
   },
   "3794": {
-    "name": "Plate, Modified 1 x 2 with 1 Stud, Jumper (Undetermined Type) (3794)",
-    "img": "https://img.bricklink.com/ItemImage/PT/1/3794.t2.png"
+    "name": " Plate 1 x 2 with 1 Stud (3794)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-plate-1-x-2-with-1-stud-with-groove-3794-15573-27.jpg"
   },
   "3795": {
     "name": "Plate 2 x 6 (3795)",
