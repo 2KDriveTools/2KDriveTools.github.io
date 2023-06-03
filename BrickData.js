@@ -999,7 +999,7 @@ const BrickData = {
     "name": "Slope 2 x 3 (25\u00b0) Inverted without Connections between Studs (3747)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-red-slope-2-x-3-25-inverted-without-connections-between-studs-3747-27-32787-81.jpg"
   },
-  "3749": {
+  "6562": {
     "name": "Axle to Pin Connector (3749 / 6562)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-tan-axle-to-pin-connector-6562-32-254579-89.jpg"
   },
@@ -1058,6 +1058,14 @@ const BrickData = {
   "3823": {
     "name": "Windscreen 2 x 4 x 2 (3823)",
     "img": "https://img.bricklink.com/ItemImage/PT/15/3823.t2.png"
+  },
+  "3828": {
+    "name": "Steering Wheel for Holder (3829)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-vehicle-console-with-black-steering-wheel-73081-27.jpg"
+  },
+  "3829": {
+    "name": "Steering Wheel Holder (3829)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-steering-wheel-holder-3829-2.jpg"
   },
   "3830": {
     "name": "Hinge Brick 1 x 4 Swivel Top (3830)",
@@ -1483,7 +1491,7 @@ const BrickData = {
     "name": "Minifigure, Utensil Metal Detector, Stud on Search Head (4479)",
     "img": "https://img.bricklink.com/ItemImage/PT/11/4479.t2.png"
   },
-  "4488": {
+  "10313": {
     "name": "Plate 2 x 2 with Wheel Holder (4488 / 10313)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-black-plate-2-x-2-with-wheel-holder-4488-10313-27-218300-38.jpg"
   },
@@ -4738,6 +4746,10 @@ const BrickData = {
   "50745": {
     "name": "Vehicle, Mudguard 4 x 2 1/2 x 1 2/3 with Arch Round (50745)",
     "img": "https://img.bricklink.com/ItemImage/PT/42/50745.t2.png"
+  },
+  "50746": {
+    "name": "Slope 1 x 1 (31deg) (50746 / 54200)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-slope-1-x-1-31-50746-54200-32.jpg"
   },
   "50747": {
     "name": "Windscreen 6 x 6 x 3 Canopy Half Sphere with Dual 2 Fingers (50747)",

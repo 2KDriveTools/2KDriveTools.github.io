@@ -1,0 +1,205 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dataform-input{
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	transition: opacity ease-in-out 300ms;
+}
+
+#fdinfo + .form {
+	height: 40%;
+}
+
+.dataform-input .form {
+	min-height: 40%;
+    width: 550px;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: #efefef;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.dataform-input > .form {
+    background-color: #242424;
+    padding: 20px;
+    border: 1px solid #888;
+	box-shadow: 2px 2px 9px 1px rgba(0, 0, 0, 0.6);
+}
+
+.dataform-input {
+	overflow: hidden !important;
+    display: none;
+    position: fixed;
+	z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7);
+}
+
+#filedropper {
+    border: 2px dashed #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font: 20pt bold;
+    color: #bbb;
+    font-family: "Raleway", Arial, sans-serif;
+}
+#filedropper:hover {
+	border: 2px solid #bbb;
+}
+
+.draggable-table {
+	position: absolute;
+	top: 0;
+	left: 12.5%;
+	/* max-width: 75%; */
+	width: 75%;
+	border-radius: 5px;
+	border: 1px solid whitesmoke;
+	border-spacing: inherit;
+}
+
+.draggable-table__drag {
+    font-size: .95em;
+    font-weight: lighter;
+    text-transform: capitalize;    
+    position: absolute;
+    width: 100%; 
+    border: 1px solid #f1f1f1;
+	border-radius: 5px;
+    z-index: 10;
+    cursor: grabbing;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.05); 
+  
+    opacity: 1;
+	background-color: #3c3c3cd6 !important;
+}  
+
+thead > th {
+    height: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px;
+    user-select: none;
+}
+thead > tr > th:first-child {
+    height: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+}
+tbody > tr {
+	cursor: grabbing;
+}
+  
+tbody > tr > td {
+	font-size: .95em;
+	font-weight: lighter;
+	text-transform: capitalize;
+	padding: 10px;
+	user-select: none;
+	border-top: 1px solid whitesmoke;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+  
+tbody > tr:nth-child(even) {
+	background-color: #323232;
+}
+
+tbody > tr:nth-child(odd) {
+}    
+  
+tbody > tr.is-dragging {
+	background: #2872b1;
+}    
+
+tbody > tr.is-dragging > td {
+	color: #ffe683;
+}
+
+.download-button {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+#app-tabs {
+	position: fixed;
+	top: 0px;
+	padding-top: 5px;
+	background: #222222;
+	z-index: 1;
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	z-index: 4;
+}
+#app-body {
+    position: relative;
+    width: 100%;
+    margin-top: 48px;
+    margin-bottom: 15px;
+}
+#app-tools {
+	position: fixed;
+	top: 50px;
+	right: 0;
+	padding: 5px;
+	background: #323232;
+	border-radius: 5px 0px 0px 5px;
+	z-index: 5;
+}
+#app-tools > div {
+	padding-left: 5px;
+}
+#car-table input {
+	padding: 0;
+	text-align: center;
+	background: #00000052;
+	color: #eee;
+	border-radius: 5px;
+	width: 92px;
+	border: 1px #000000a6 inset;
+	height: 25px;
+	font-size: 1em;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
