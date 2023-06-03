@@ -282,10 +282,11 @@ function readSave() {
 		ofs = global.data.find('VehicleName', ofs)
 		if (ofs > 0) {
 			ofs += 37
-			let len = global.data.getUint32(ofs, true)
+			let len = global.data.getInt32(ofs, true)
 			ofs += 4
-			if (len > 0) {
-				let name = global.data.readString(ofs, len - 1);
+			if (len != 0) {
+				let name
+				[ len, name ] = global.data.readString(ofs, len);
 				ofs += len
 
 				ofs = global.data.find("Parts\0\x0F\0\0\0StructProperty\0", ofs)
@@ -411,15 +412,26 @@ function loadFile(f = null) {
 		var dr = new FileReader();
 		
 		global.dec = new TextDecoder("ISO-8859-2");
+		global.utfdec = new TextDecoder("UTF-16");
 		
 		dr.readAsArrayBuffer(f);
 		dr.onload = function(f) { 
 			global.data = new DataView(f.target.result);
 			
 			global.data.readString = function (offset, length) {
-				var chars = new Uint8Array(length), i, j;
-				for (i = offset, j=0; j < length; i++) chars[j++] = this.getInt8(i, true);
-				return global.dec.decode(chars);
+				let blen = length
+				
+				if (length > 0) {
+					var chars = new Uint8Array(length - 1), i, j;
+					for (i = offset, j=0; j < length; i++) chars[j++] = this.getInt8(i, true);
+					return [ blen, global.dec.decode(chars) ]
+				} else {
+					blen *= -2
+					let enc_len = blen - 2
+					var chars = new Uint16Array(enc_len / 2), i, j;
+					for (i = offset, j=0; j < enc_len; i += 2) chars[j++] = this.getUint16(i, true);
+					return [ blen, global.utfdec.decode(chars) ]
+				}
 			}
 			
 			global.data.writeString = function (offset, string, size=string.length) {

@@ -49,6 +49,7 @@ button {
 button.active {
 	border: 2px solid #00eaff;
 	font-weight: bold;
+	margin: 3px;
 }
 button:hover {
 	background-color: #225683;
