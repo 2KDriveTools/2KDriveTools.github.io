@@ -203,3 +203,16 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+#filedropper > code {
+    padding: 0px 6px;
+    background: #00000040;
+    border-radius: 5px;
+    margin: 5px;
+    border: 2px inset #00000054;
+	color: whitesmoke;
+}
+#filedropper {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
