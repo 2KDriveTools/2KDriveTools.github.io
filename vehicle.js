@@ -13,6 +13,8 @@ const tools = z("app-tools")
 const modal = z("app-modal")
 const modalContent = z("modal-part")
 
+const tableStyle = document.createElement('style')
+
 var activeCar = null
 
 function comparePart(a, b) {
@@ -162,7 +164,7 @@ function openPart(part) {
 	span.textContent = "Vector"
 	vec.appendChild(span)
 	for (let k in part.vector) {
-		let _in = customInput(vec, k.toUpperCase(), 12.5)
+		let _in = customInput(vec, k.toUpperCase(), k == 'z' ? 10.0 : 12.5)
 		_in.value = part.vector[k]
 		
 		_in.addEventListener("change", function(e) {
@@ -175,6 +177,13 @@ function openPart(part) {
 	modalContent.appendChild(vec)
 }
 
+var lastAngle = 0
+function randomColor() { /* Actually rotating, to prevent neighbouring matches */
+	lastAngle += 56
+	lastAngle %= 360
+	return "hsl(" + (lastAngle) + 'deg 100% 45% / 25%)'
+}
+
 function openCar(car) {
 	// console.log("opening ", car)
 	checkChanges()
@@ -182,14 +191,14 @@ function openCar(car) {
 	for (let a of car.assemblies.list) {
 		let _d = document.createElement("div")
 		let _s = document.createElement("span")
-		_s.textContent = a.ofs + " | " + a.val
+		_s.textContent = a.ofs + " | " + a.numParts
 		
 		let elem = document.createElement("button")
 		elem.textContent = "to 1"
 		elem.onclick = function() {
 			global.data.setUint16(a.ofs, 1, true)
-			a.val = 1
-			_s.textContent = a.ofs + " | " + a.val
+			a.numParts = 1
+			_s.textContent = a.ofs + " | " + a.numParts
 		}
 		
 		_d.appendChild(_s)
@@ -254,6 +263,21 @@ function openCar(car) {
 		
 		tr.appendChild(td)
 	}
+	
+	tableStyle.innerHTML = ""
+	for (let i in car.assemblies.list) {
+		let assembly = car.assemblies.list[i]
+		let col = randomColor()
+
+		tableStyle.innerHTML += `#car-table > tbody > tr:nth-child(n+${assembly.partOffset + 1}):nth-child(-n+${assembly.partOffset + assembly.numParts}):after {
+	background: ${col};
+	content: '';
+}
+#app-tools > div:nth-child(${parseInt(i) + 1}) {
+	background: ${col};
+}
+`
+	}
 }
 
 function downloadSave() {
@@ -301,13 +325,19 @@ function readSave() {
 				let ass_list = []
 				let l_ofs = ass_ofs
 				while (l_ofs > 0) {
-					l_ofs = global.data.find("NumParts\0\x0F\0\0\0UInt16Property\0", l_ofs) 
-
+					l_ofs = global.data.find("PartOffset\0\x0F\0\0\0UInt16Property\0", l_ofs) 
 					if (l_ofs > (ass_ofs + ass_size))
 						break
 					
+					l_ofs += 0x27
+					let pofs = global.data.getUint16(l_ofs, true)
+					
+					l_ofs = global.data.find("NumParts\0\x0F\0\0\0UInt16Property\0", l_ofs) 
+					
 					l_ofs += 0x25
-					ass_list.push( { "ofs": l_ofs, "val": global.data.getUint16(l_ofs, true) } )
+					let pval = global.data.getUint16(l_ofs, true)
+					
+					ass_list.push( { "ofs": l_ofs, "numParts": pval, "partOffset": pofs } )
 				}
 
 				let carData = {
@@ -666,4 +696,6 @@ document.addEventListener('contextmenu', function(e) {
 	}
 	e.preventDefault();
 }, false);
+
+document.body.appendChild(tableStyle)
 })();
