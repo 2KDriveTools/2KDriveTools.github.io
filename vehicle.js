@@ -13,6 +13,8 @@ const tools = z("app-tools")
 const modal = z("app-modal")
 const modalContent = z("modal-part")
 
+const rightClicks = {}
+
 const tableStyle = document.createElement('style')
 
 var activeCar = null
@@ -195,11 +197,28 @@ function openCar(car) {
 		
 		let elem = document.createElement("button")
 		elem.textContent = "to 1"
+		elem._assembly_size = 1
 		elem.onclick = function() {
-			global.data.setUint16(a.ofs, 1, true)
-			a.numParts = 1
+			global.data.setUint16(a.ofs, this._assembly_size, true)
+			a.numParts = this._assembly_size
 			_s.textContent = a.ofs + " | " + a.numParts
 		}
+		_d.addEventListener('mousedown', function(evt) {
+			if (evt.target.nodeName == 'BUTTON')
+				return
+			let elem = this.querySelector('button')
+			elem._assembly_size += 1
+			elem._assembly_size -= evt.button
+			if (elem._assembly_size < 1)
+				elem._assembly_size = 1
+			elem.textContent = "to " + elem._assembly_size
+			/*
+			let elem = target.querySelector('button')
+			console.log("RIGHTCLICKS", elem, target)
+			elem._assembly_size += 1
+			elem.textContent = "to " + elem._assembly_size
+			*/
+		})
 		
 		_d.appendChild(_s)
 		_d.appendChild(elem)
@@ -689,10 +708,15 @@ function closeModal() {
 
 document.addEventListener('contextmenu', function(e) {
 	let target = e.target
-	if (target.nodeName == 'TD')
-		target = target.parentElement
-	if (target.data_part) {
-		openPart(target.data_part)
+	let f = rightClicks[target]
+	if (f != undefined) {
+		f(target)
+	} else {
+		if (target.nodeName == 'TD')
+			target = target.parentElement
+		if (target.data_part) {
+			openPart(target.data_part)
+		}
 	}
 	e.preventDefault();
 }, false);
