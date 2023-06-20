@@ -60,7 +60,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/2/2357.t2.png"
   },
   "2362": {
-    "name": "Panel 1 x 2 x 3 (Undetermined Type) (2362)",
+    "name": "Panel 1 x 2 x 3 (2362)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/2362.t2.png"
   },
   "2376": {
@@ -119,7 +119,7 @@ const BrickData = {
     "name": "Hinge Bar with 3 Fingers and End Stud (Control Lever) (2433)",
     "img": "https://img.bricklink.com/ItemImage/PT/11/2433.t2.png"
   },
-  "2436": {
+  "10201": {
     "name": "Bracket 1 x 2 - 1 x 4 with Rounded Corners (2436 / 10201)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-medium-stone-gray-bracket-1-x-2-1-x-4-with-rounded-corners-2436-10201-27-978096-64.jpg"
   },
@@ -160,7 +160,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/3/2452.t2.png"
   },
   "2453": {
-    "name": "Brick 1 x 1 x 5 (Undetermined Type) (2453)",
+    "name": "Brick 1 x 1 x 5 (2453)",
     "img": "https://img.bricklink.com/ItemImage/PT/3/2453.t2.png"
   },
   "2454": {
@@ -208,7 +208,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/8/2489.t2.png"
   },
   "2493": {
-    "name": "Window 1 x 4 x 5 (Undetermined Type) (2493)",
+    "name": "Window 1 x 4 x 5 (2493)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/2493.t2.png"
   },
   "2495": {
@@ -428,7 +428,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-light-gray-beam-1-x-4-x-0-5-with-knob-2825-32006-28-346580-66.jpg"
   },
   "2850": {
-    "name": "Technic Engine Cylinder (Undetermined Type) (2850)",
+    "name": "Technic Engine Cylinder (2850)",
     "img": "https://img.bricklink.com/ItemImage/PT/9/2850.t2.png"
   },
   "2854": {
@@ -624,7 +624,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/11/3043.t2.png"
   },
   "3044": {
-    "name": "Slope 45 2 x 1 Double (Undetermined Type) (3044)",
+    "name": "Slope 45 2 x 1 Double (3044)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/3044.t2.png"
   },
   "3045": {
@@ -636,11 +636,11 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-dark-stone-gray-slope-2-x-2-45-with-double-concave-rough-surface-3046-32-595472-50.jpg"
   },
   "3048": {
-    "name": "Slope 45 2 x 1 Triple (Undetermined Type) (3048)",
+    "name": "Slope 45 2 x 1 Triple (3048)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/3048.t2.png"
   },
   "3049": {
-    "name": "Slope 45 2 x 1 Double / Inverted (Undetermined Type) (3049)",
+    "name": "Slope 45 2 x 1 Double / Inverted (3049)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/3049.t2.png"
   },
   "3062": {
@@ -660,7 +660,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/20/3066.t2.png"
   },
   "3068": {
-    "name": "Tile 2 x 2 (Undetermined Type) (3068)",
+    "name": "Tile 2 x 2 (3068)",
     "img": "https://img.bricklink.com/ItemImage/PT/7/3068.t2.png"
   },
   "3069": {
@@ -668,7 +668,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-medium-blue-tile-1-x-2-with-stripes-and-glove-sticker-with-groove-25-612953-14.jpg"
   },
   "3070": {
-    "name": "Tile 1 x 1 (Undetermined Type) (3070)",
+    "name": "Tile 1 x 1 (3070)",
     "img": "https://img.bricklink.com/ItemImage/PT/7/3070.t2.png"
   },
   "3134": {
@@ -688,7 +688,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-blue-technic-toggle-joint-connector-3182-32126-27-77206-39.jpg"
   },
   "3183": {
-    "name": "Plate, Modified 1 x 4 with Tow Ball Socket (Undetermined Type) (3183)",
+    "name": "Plate, Modified 1 x 4 with Tow Ball Socket (3183)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/3183.t2.png"
   },
   "3184": {
@@ -880,7 +880,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/85/3648.t2.png"
   },
   "3650": {
-    "name": "Technic, Gear 24 Tooth Crown (Undetermined Type) (3650)",
+    "name": "Technic, Gear 24 Tooth Crown (3650)",
     "img": "https://img.bricklink.com/ItemImage/PT/9/3650.t2.png"
   },
   "3659": {
@@ -1096,7 +1096,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/7/3838.t2.png"
   },
   "3839": {
-    "name": "Plate, Modified 1 x 2 with Bar Handles (Undetermined Type) (3839)",
+    "name": "Plate, Modified 1 x 2 with Bar Handles (3839)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/3839.t2.png"
   },
   "3841": {
@@ -1216,7 +1216,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/39/3961.t2.png"
   },
   "3962": {
-    "name": "Minifigure, Utensil Radio (Undetermined Type) (3962)",
+    "name": "Minifigure, Utensil Radio (3962)",
     "img": "https://img.bricklink.com/ItemImage/PT/11/3962.t2.png"
   },
   "3963": {
@@ -1264,7 +1264,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/55/4080.t2.png"
   },
   "4081": {
-    "name": "Plate, Modified 1 x 1 with Light Attachment (Undetermined Type) (4081)",
+    "name": "Plate, Modified 1 x 1 with Light Attachment (4081)",
     "img": "https://img.bricklink.com/ItemImage/PT/11/4081.t2.png"
   },
   "4083": {
@@ -1276,7 +1276,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/11/4084.t2.png"
   },
   "4085": {
-    "name": "Plate, Modified 1 x 1 with Clip Vertical (Undetermined Type) (4085)",
+    "name": "Plate, Modified 1 x 1 with Clip Vertical (4085)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4085.t2.png"
   },
   "4094": {
@@ -1356,7 +1356,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/3/4214.t2.png"
   },
   "4215": {
-    "name": "Panel 1 x 4 x 3 (Undetermined Type) (4215)",
+    "name": "Panel 1 x 4 x 3 (4215)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4215.t2.png"
   },
   "4216": {
@@ -1392,11 +1392,11 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/7/4274.t2.png"
   },
   "4275": {
-    "name": "Hinge Plate 1 x 2 with 3 Fingers (Undetermined Type) (4275)",
+    "name": "Hinge Plate 1 x 2 with 3 Fingers (4275)",
     "img": "https://img.bricklink.com/ItemImage/PT/5/4275.t2.png"
   },
   "4276": {
-    "name": "Hinge Plate 1 x 2 with 2 Fingers (Undetermined Type) (4276)",
+    "name": "Hinge Plate 1 x 2 with 2 Fingers (4276)",
     "img": "https://img.bricklink.com/ItemImage/PT/3/4276.t2.png"
   },
   "4282": {
@@ -1408,7 +1408,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/12/4284.t2.png"
   },
   "4285": {
-    "name": "Dish 6 x 6 Inverted (Radar) Webbed (Undetermined Type) (4285)",
+    "name": "Dish 6 x 6 Inverted (Radar) Webbed (4285)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4285.t2.png"
   },
   "4286": {
@@ -1468,7 +1468,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/1/4449.t2.png"
   },
   "4460": {
-    "name": "Slope 75 2 x 1 x 3 (Undetermined Type) (4460)",
+    "name": "Slope 75 2 x 1 x 3 (4460)",
     "img": "https://img.bricklink.com/ItemImage/PT/63/4460.t2.png"
   },
   "4466": {
@@ -1496,7 +1496,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-black-plate-2-x-2-with-wheel-holder-4488-10313-27-218300-38.jpg"
   },
   "4489": {
-    "name": "Wheel Wagon Large 33mm D. (Undetermined Type) (4489)",
+    "name": "Wheel Wagon Large 33mm D. (4489)",
     "img": "https://img.bricklink.com/ItemImage/PT/88/4489.t2.png"
   },
   "4490": {
@@ -1504,7 +1504,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/5/4490.t2.png"
   },
   "4495": {
-    "name": "Flag 4 x 1 Wave Undetermined (Undetermined Type) (4495)",
+    "name": "Flag 4 x 1 Wave Undetermined (4495)",
     "img": "https://img.bricklink.com/ItemImage/PT/0/4495.t2.png"
   },
   "4497": {
@@ -1544,7 +1544,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/3/4531.t2.png"
   },
   "4532": {
-    "name": "Container, Cupboard 2 x 3 x 2 (Undetermined Type) (4532)",
+    "name": "Container, Cupboard 2 x 3 x 2 (4532)",
     "img": "https://img.bricklink.com/ItemImage/PT/86/4532.t2.png"
   },
   "4533": {
@@ -1600,7 +1600,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/5/4598.t2.png"
   },
   "4599": {
-    "name": "Tap 1 x 1 (Undetermined Type) (4599)",
+    "name": "Tap 1 x 1 (4599)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4599.t2.png"
   },
   "4600": {
@@ -1612,7 +1612,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/8/4617.t2.png"
   },
   "4623": {
-    "name": "Plate, Modified 1 x 2 with Bar Arm Up (Undetermined Type) (4623)",
+    "name": "Plate, Modified 1 x 2 with Bar Arm Up (4623)",
     "img": "https://img.bricklink.com/ItemImage/PT/9/4623.t2.png"
   },
   "4624": {
@@ -1660,11 +1660,11 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/9/4735.t2.png"
   },
   "4738": {
-    "name": "Container, Treasure Chest Bottom (Undetermined Type) (4738)",
+    "name": "Container, Treasure Chest Bottom (4738)",
     "img": "https://img.bricklink.com/ItemImage/PT/8/4738.t2.png"
   },
   "4739": {
-    "name": "Container, Treasure Chest Lid Curved (Undetermined Type) (4739)",
+    "name": "Container, Treasure Chest Lid Curved (4739)",
     "img": "https://img.bricklink.com/ItemImage/PT/8/4739.t2.png"
   },
   "4740": {
@@ -1696,7 +1696,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/1/4855.t2.png"
   },
   "4856": {
-    "name": "Wedge 6 x 4 Triple Inverted (Undetermined Type) (4856)",
+    "name": "Wedge 6 x 4 Triple Inverted (4856)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4856.t2.png"
   },
   "4858": {
@@ -1716,7 +1716,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/9/4863.t2.png"
   },
   "4864": {
-    "name": "Panel 1 x 2 x 2 (Undetermined Type) (4864)",
+    "name": "Panel 1 x 2 x 2 (4864)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/4864.t2.png"
   },
   "4865": {
@@ -1932,7 +1932,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/6/6148.t2.png"
   },
   "6152": {
-    "name": "Windscreen 6 x 4 x 1 1/3 (Undetermined Type) (6152)",
+    "name": "Windscreen 6 x 4 x 1 1/3 (6152)",
     "img": "https://img.bricklink.com/ItemImage/PT/8/6152.t2.png"
   },
   "6153": {
@@ -1992,7 +1992,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-magenta-brick-1-x-4-with-curved-top-6191-10314-27-563708-72.jpg"
   },
   "6192": {
-    "name": "Slope, Curved 2 x 4 Double (Undetermined Type) (6192)",
+    "name": "Slope, Curved 2 x 4 Double (6192)",
     "img": "https://img.bricklink.com/ItemImage/PT/34/6192.t2.png"
   },
   "6195": {
@@ -2164,7 +2164,7 @@ const BrickData = {
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-medium-stone-gray-bushing-6590-42798-32-88261-64.jpg"
   },
   "6628": {
-    "name": "Technic, Pin with Friction Ridges and Tow Ball (Undetermined Type) (6628)",
+    "name": "Technic, Pin with Friction Ridges and Tow Ball (6628)",
     "img": "https://img.bricklink.com/ItemImage/PT/11/6628.t2.png"
   },
   "6629": {
@@ -3440,7 +3440,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/88/30150.t2.png"
   },
   "30151": {
-    "name": "Brick, Round 2 x 2 x 1 2/3 Dome Top (Undetermined Type) (30151)",
+    "name": "Brick, Round 2 x 2 x 1 2/3 Dome Top (30151)",
     "img": "https://img.bricklink.com/ItemImage/PT/3/30151.t2.png"
   },
   "30153": {
@@ -3556,7 +3556,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/86/30236.t2.png"
   },
   "30237": {
-    "name": "Brick, Modified 1 x 2 with Clip (Vertical Grip) (Undetermined Type) (30237)",
+    "name": "Brick, Modified 1 x 2 with Clip (Vertical Grip) (30237)",
     "img": "https://img.bricklink.com/ItemImage/PT/5/30237.t2.png"
   },
   "30238": {
@@ -3624,7 +3624,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/15/30342.t2.png"
   },
   "30350": {
-    "name": "Tile, Modified 2 x 3 with 2 Clips (Undetermined Type) (30350)",
+    "name": "Tile, Modified 2 x 3 with 2 Clips (30350)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/30350.t2.png"
   },
   "30355": {
@@ -3648,7 +3648,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/1/30360.t2.png"
   },
   "30361": {
-    "name": "Brick, Round 2 x 2 x 2 Robot Body (Undetermined Type) (30361)",
+    "name": "Brick, Round 2 x 2 x 2 Robot Body (30361)",
     "img": "https://img.bricklink.com/ItemImage/PT/9/30361.t2.png"
   },
   "30362": {
@@ -4440,11 +4440,11 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/85/44300.t2.png"
   },
   "44301": {
-    "name": "Hinge Plate 1 x 2 Locking with 1 Finger on End (Undetermined Type) (44301)",
+    "name": "Hinge Plate 1 x 2 Locking with 1 Finger on End (44301)",
     "img": "https://img.bricklink.com/ItemImage/PT/5/44301.t2.png"
   },
   "44302": {
-    "name": "Hinge Plate 1 x 2 Locking with 2 Fingers on End (Undetermined Type) (44302)",
+    "name": "Hinge Plate 1 x 2 Locking with 2 Fingers on End (44302)",
     "img": "https://img.bricklink.com/ItemImage/PT/9/44302.t2.png"
   },
   "44308": {
@@ -4456,11 +4456,11 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/11/44309.t2.png"
   },
   "44375": {
-    "name": "Dish 6 x 6 Inverted (Radar) (Undetermined Type) (44375)",
+    "name": "Dish 6 x 6 Inverted (Radar) (44375)",
     "img": "https://img.bricklink.com/ItemImage/PT/85/44375.t2.png"
   },
   "44567": {
-    "name": "Hinge Plate 1 x 2 Locking with 1 Finger on Side (Undetermined Type) (44567)",
+    "name": "Hinge Plate 1 x 2 Locking with 1 Finger on Side (44567)",
     "img": "https://img.bricklink.com/ItemImage/PT/5/44567.t2.png"
   },
   "44568": {
@@ -4684,7 +4684,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/88/48723.t2.png"
   },
   "48729": {
-    "name": "Bar   1L with Clip Mechanical Claw (Undetermined Type) (48729)",
+    "name": "Bar   1L with Clip Mechanical Claw (48729)",
     "img": "https://img.bricklink.com/ItemImage/PT/85/48729.t2.png"
   },
   "48812": {
@@ -4812,7 +4812,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/85/50967.t2.png"
   },
   "50990": {
-    "name": "Dish 10 x 10 Inverted (Radar) (Undetermined Type) (50990)",
+    "name": "Dish 10 x 10 Inverted (Radar) (50990)",
     "img": "https://img.bricklink.com/ItemImage/PT/86/50990.t2.png"
   },
   "51270": {
@@ -4832,7 +4832,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/39/51739.t2.png"
   },
   "51858": {
-    "name": "Crane Bucket Lift Basket 2 x 3 x 2 with Locking Hinge Fingers (Undetermined Type) (51858)",
+    "name": "Crane Bucket Lift Basket 2 x 3 x 2 with Locking Hinge Fingers (51858)",
     "img": "https://img.bricklink.com/ItemImage/PT/1/51858.t2.png"
   },
   "52031": {
@@ -5128,7 +5128,7 @@ const BrickData = {
     "img": "https://img.bricklink.com/ItemImage/PT/2/60581.t2.png"
   },
   "60583": {
-    "name": "Brick, Modified 1 x 1 x 3 with 2 Clips Vertical (Undetermined Type) (60583)",
+    "name": "Brick, Modified 1 x 1 x 3 with 2 Clips Vertical (60583)",
     "img": "https://img.bricklink.com/ItemImage/PT/3/60583.t2.png"
   },
   "60592": {
