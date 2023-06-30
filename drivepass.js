@@ -26,12 +26,24 @@ function downloadSave() {
 function readSave() {
 	let ofs = 0x480;
 
+	let prem = global.data.find('UnlockedDrivePasses\0\x0E\0\0\0ArrayProperty\0\x08\0\0\0\0\0\0\0\x0D\0\0\0BoolProperty\0\0')
+	var isPremium = false
+	if (prem > 1) {
+		prem += 0x40
+		isPremium = (global.data.getUint32(prem, true) > 0) && (global.data.getInt8(prem + 4) != 0)
+	}
+	
 	ofs = global.data.find('DXPList\0\x0E\0\0\0ArrayProperty\0')
 	if (ofs > 0) {
 		ofs += 0x37
-		global.data.setUint32(ofs, 150000, true)
+		if (isPremium) {
+			global.data.setUint32(ofs, 150000, true)
+			modalContent.textContent = `Set Premium DrivePass Level to 100` 
+		} else {
+			global.data.setUint32(ofs, 149000, true)
+			modalContent.textContent = `Set DrivePass Level to 99` 
+		}
 
-		modalContent.textContent = `Set DrivePass Level to 100` 
 		let _div = document.createElement("div")
 		_div.classList.add("modal-download-button")
 		
