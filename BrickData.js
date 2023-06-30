@@ -3258,7 +3258,7 @@ const BrickData = {
   "29017": {
 	  "name": "Lobster Decoration (29017)",
 	  "img": "https://img.brickowl.com/files/image_cache/medium/lego-lobster-with-black-eyes-with-white-pupils-decoration-29017-28.jpg"
-  }
+  },
   "29109": {
     "name": "Minifigure, Weapon Machete (29109)",
     "img": "https://img.bricklink.com/ItemImage/PT/95/29109.t2.png"
