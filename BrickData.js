@@ -6466,5 +6466,13 @@ const BrickData = {
   "1011115": {
 	  "name": "9 Spoke Hub Cap (1011115)",
 	  "img": "https://img.brickowl.com/files/image_cache/small/lego-pearl-dark-gray-wheel-cover-9-spoke-28-912897-119.jpeg"
+  },
+  "24234": {
+	  "name": "Windscreen 8 x 3 x 1 1/3 Half Left (24234)",
+	  "img": "https://img.brickowl.com/files/image_cache/medium/lego-black-left-windscreen-3-x-8-x-1-1-3-with-hole-24235-36001-27-592184-38.jpg"
+  },
+  "24233": {
+	  "name": "Windscreen 8 x 3 x 1 1/3 Half Right (24234)",
+	  "img": "https://img.brickowl.com/files/image_cache/medium/lego-black-right-windscreen-3-x-8-x-1-1-3-with-hole-24226-36006-27-240453-38.jpg"
   }
 }
