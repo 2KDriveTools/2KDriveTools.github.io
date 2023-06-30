@@ -51,7 +51,7 @@ function readSave() {
 	
 	_div.appendChild(_btn)
 
-	modalContent.textContent = `Max ${saveData.maxed} Instructions` 
+	modalContent.textContent = `Maxed ${saveData.maxed} Instructions` 
 	modalContent.parentNode.appendChild(_div)
 }
 
