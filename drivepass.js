@@ -26,21 +26,25 @@ function downloadSave() {
 function readSave() {
 	let ofs = 0x480;
 
-	ofs = global.data.find('DXPList\0\x0E\0\0\0\0ArrayProperty\0')
-	ofs += 0x37
+	ofs = global.data.find('DXPList\0\x0E\0\0\0ArrayProperty\0')
+	if (ofs > 0) {
+		ofs += 0x37
+		global.data.setUint32(ofs, 150000, true)
 
-	global.data.setUint32(ofs, 150000, true)
-	
-	let _div = document.createElement("div")
-	_div.classList.add("modal-download-button")
-	
-	let _btn = document.createElement("button")
-	_btn.textContent = "Download Save"
-	_btn.addEventListener("click", downloadSave);
-	
-	_div.appendChild(_btn)
+		modalContent.textContent = `Set DrivePass Level to 100` 
+		let _div = document.createElement("div")
+		_div.classList.add("modal-download-button")
+		
+		let _btn = document.createElement("button")
+		_btn.textContent = "Download Save"
+		_btn.addEventListener("click", downloadSave);
+		
+		_div.appendChild(_btn)
 
-	modalContent.parentNode.appendChild(_div)
+		modalContent.parentNode.appendChild(_div)
+	} else {
+		modalContent.textContent = `Unable to change DrivePass Level` 
+	}
 }
 
 function loadFile(f = null) {
