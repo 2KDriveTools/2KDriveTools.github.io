@@ -3255,6 +3255,10 @@ const BrickData = {
     "name": "Bracket 2 x 5 x 2.33 and Inside Stud Holder (28964 / 76766)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-dark-red-bracket-2-x-5-x-2-33-and-inside-stud-holder-28964-27-183818-56.jpg"
   },
+  "29017": {
+	  "name": "Lobster Decoration (29017)",
+	  "img": "https://img.brickowl.com/files/image_cache/medium/lego-lobster-with-black-eyes-with-white-pupils-decoration-29017-28.jpg"
+  }
   "29109": {
     "name": "Minifigure, Weapon Machete (29109)",
     "img": "https://img.bricklink.com/ItemImage/PT/95/29109.t2.png"
@@ -6446,5 +6450,21 @@ const BrickData = {
   "184338": {
     "name": "Roadsign Clip-on 2 x 2 Octagonal (184338)",
     "img": "https://img.brickowl.com/files/image_cache/medium/lego-yellow-roadsign-clip-on-2-x-2-octagonal-2-184338-93.jpg"
+  },
+  "15573": {
+    "name": "Plate 1 x 2 with 1 Stud (15573)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-plate-1-x-2-with-1-stud-with-groove-and-bottom-stud-holder-15573-27.jpg"
+  },
+  "88072": {
+    "name": "Plate 1 x 2 with Hook (5mm Horizontal Arm) (88072)",
+    "img": "https://img.brickowl.com/files/image_cache/medium/lego-plate-1-x-2-with-hook-5mm-horizontal-arm-43876-88072-27.jpg"
+  },
+  "1014320": {
+	  "name": "5 Spoke Hub Cap (1014320)",
+	  "img": "https://img.brickowl.com/files/image_cache/medium/lego-flat-silver-5-spoke-hub-cap-28-322426-117.jpg"
+  },
+  "1011115": {
+	  "name": "9 Spoke Hub Cap (1011115)",
+	  "img": "https://img.brickowl.com/files/image_cache/small/lego-pearl-dark-gray-wheel-cover-9-spoke-28-912897-119.jpeg"
   }
 }

@@ -18,6 +18,7 @@
   border: 1px solid #888;
   width: 60%; /* Could be more or less, depending on screen size */
   position: relative;
+  border-radius: 5px;
 }
 
 .close {
@@ -115,4 +116,13 @@
     border-radius: 5px;
     top: 0px;
     left: 8px;
+}
+.modal-download-button {
+    align-items: center;
+    vertical-align: middle;
+    display: flex;	
+}
+.modal-download-button > button {
+	margin: auto;
+    margin-top: 10px;
 }
