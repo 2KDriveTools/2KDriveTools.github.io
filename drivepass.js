@@ -3,6 +3,8 @@ document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
 
+const FILECHECK = { "name": "ArtemisPlayerInfo.sav", "script": "/Script/Artemis.ArtemisPlayerInfoSaveGame"}
+
 const saveData = {}
 
 const app = z("app")
@@ -21,6 +23,33 @@ function downloadSave() {
 	a.click();
 	a.parentNode.removeChild(a);
 	window.URL.revokeObjectURL(url);
+}
+
+const fdi = z('fdinfo')
+function validateFile(data) {
+	let ofs = data.find("/Script/Artemis", 16)
+	if (ofs < 0)
+		return false
+
+	let len = global.data.getInt32(ofs - 4, true)
+	let name
+	[ len, name ] = global.data.readString(ofs, len);
+
+	return name == FILECHECK.script
+}
+(()=>{
+	let c = document.querySelector('#filedropper > code')
+	c.innerText = FILECHECK.name
+})()
+function errorShake() {
+	fdi.classList.remove('error')
+	setTimeout(function() {
+		fdi.style.opacity = "1";
+		fdi.style.top = "calc(70% + 50px)";
+		fd.classList.add('error')
+		fdi.classList.add('error')
+		fd.style.border = '';
+	}, 5);
 }
 
 function readSave() {
@@ -114,15 +143,17 @@ function loadFile(f = null) {
 			var u8arr = new Uint8Array(global.data.buffer);
 			global.data.str = global.dec.decode(u8arr)
 			
-			readSave()
+			if (validateFile(global.data)) {
+				var md = document.getElementsByClassName('dataform-input')[0];
+				md.style.opacity = "0";
+				setTimeout(function() {
+					md.parentNode.removeChild(md);
+				}, 300);
+				readSave()
+			} else {
+				errorShake()
+			}
 		}
-
-		var md = document.getElementsByClassName('dataform-input')[0];
-		md.style.opacity = "0";
-		modal.style.display = "block"
-		setTimeout(function() {
-			md.parentNode.removeChild(md);
-		}, 300);
 	}
 }
 function handleFileSelect(evt) {
