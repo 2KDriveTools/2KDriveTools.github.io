@@ -142,6 +142,7 @@ function loadFile(f = null) {
 			if (validateFile(global.data)) {
 				var md = document.getElementsByClassName('dataform-input')[0];
 				md.style.opacity = "0";
+				modal.style.display = "block"
 				setTimeout(function() {
 					md.parentNode.removeChild(md);
 				}, 300);

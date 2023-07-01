@@ -12,7 +12,6 @@ const modal = z("app-modal")
 const modalContent = z("modal-part")
 
 function downloadSave() {
-
 	var blob = new Blob([global.data]),
 		url = window.URL.createObjectURL(blob),
 		a = document.createElement("a");
@@ -146,6 +145,7 @@ function loadFile(f = null) {
 			if (validateFile(global.data)) {
 				var md = document.getElementsByClassName('dataform-input')[0];
 				md.style.opacity = "0";
+				modal.style.display = "block"
 				setTimeout(function() {
 					md.parentNode.removeChild(md);
 				}, 300);
