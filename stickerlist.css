@@ -1,0 +1,22 @@
+.part-holder {
+	position: relative
+}
+.part-holder > span {
+	margin-bottom: 10px;
+}
+.part-holder > code {
+	position: absolute;
+	right: 0;
+	top: 25px;
+	background: #656565;
+	color: #cccccc;
+}
+.part-holder > .len-span {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: #808080ba;
+	border-radius: 5px;
+	margin: 2px;
+	padding: 2px 3px;
+}

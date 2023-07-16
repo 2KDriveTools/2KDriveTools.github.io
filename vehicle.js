@@ -223,7 +223,7 @@ function openCar(car) {
 	for (let a of car.assemblies.list) {
 		let _d = document.createElement("div")
 		let _s = document.createElement("span")
-		_s.textContent = a.ofs + " | " + a.numParts
+		_s.textContent = "0x" + a.ofs.toString(16) + " | " + a.numParts
 		
 		let elem = document.createElement("button")
 		elem.textContent = "to 1"
@@ -231,7 +231,7 @@ function openCar(car) {
 		elem.onclick = function() {
 			global.data.setUint16(a.ofs, this._assembly_size, true)
 			a.numParts = this._assembly_size
-			_s.textContent = a.ofs + " | " + a.numParts
+			_s.textContent = "0x" + a.ofs.toString(16) + " | " + a.numParts
 		}
 		_d.addEventListener('mousedown', function(evt) {
 			if (evt.target.nodeName == 'BUTTON')
