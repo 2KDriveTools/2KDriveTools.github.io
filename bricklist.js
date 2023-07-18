@@ -8,9 +8,9 @@ for (let part_id in BrickData) {
 	let span = document.createElement('span')
 	let img = document.createElement('img')
 	img.loading = "lazy"
-	img.src = part.img
+	img.src = './resources/Bricks/' + part.img + '.png'
 	
-	span.innerText = part.name
+	span.innerText = part.name + ' (' + part.id + ')'
 	
 	cont.appendChild(span)
 	cont.appendChild(img)
