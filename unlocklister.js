@@ -112,61 +112,22 @@ function createDropdown(name, items) {
 function readSave() {
 	let ofs = 0x480;
 
-	const modes = {
-		'Minifig': 'PoliceOfficer_female_02\0',
-		'Vehicle': 'HeadlessHorsepowerOffroad_VC000\0',
-		'Sticker': 'StickerGarage_RallyRacer_1\0',
-		'BrickPack': 'Brickpack_Windshield_02'
+	const srch = 'LockRewardAsset\0'
+
+	while (true) {
+		ofs = global.data.find(srch, ofs)
+		if (ofs < 0)
+			break
+		ofs += 0xC8
+		let len, type, name;
+		[len, type] = global.data.readString(ofs)
+		ofs += 4 + len
+		ofs += 0x38
+		name = global.data.readString(ofs)[1]
+		console.log(ofs, type, name)
 	}
 
-	saveData.selection = undefined
-	saveData.modes = {}
-
-	for (let mode in modes) {
-		let srch = modes[mode]
-
-		let modeData = {}
-		
-		modeData.replace_ofs = []
-		modeData.reqLen = srch.length
-		while (true) {
-			ofs = global.data.find(srch, ofs + srch.length)
-			if (ofs < 0)
-				break
-			modeData.replace_ofs.push(ofs)
-		}
-		
-		if (modeData.replace_ofs.length > 0) {
-			saveData.modes[mode] = modeData
-		}
-	}
-
-	let drop = createDropdown("Select", saveData.modes)
-
-	modalContent.appendChild(drop)
-
-	/*
-	let _span = document.createElement('span')
-	_span.innerText = "Character ID:"
-	modalContent.appendChild(_span)
-	*/
-	
-	let inp = document.createElement('input')
-	inp.id = "char_internal"
-	modalContent.appendChild(inp)
-	
-	let _set = document.createElement("button")
-	_set.textContent = "Set"
-	_set.addEventListener("click", setCharacter);
-	modalContent.appendChild(_set)
-
-	let _div = createElement("div", "modal-download-button")
-	
-	let _btn = document.createElement("button")
-	_btn.textContent = "Download Save"
-	_btn.addEventListener("click", downloadSave);
-	
-	_div.appendChild(_btn)
+	let _div = createElement("div", "reward-list")
 	
 	modalContent.parentNode.appendChild(_div)
 }
@@ -187,7 +148,12 @@ function loadFile(f = null) {
 		dr.onload = function(f) { 
 			global.data = new DataView(f.target.result);
 			
-			global.data.readString = function (offset, length) {
+			global.data.readString = function (offset, length = undefined) {
+				if (length == undefined) {
+					length = global.data.getInt32(offset, true)
+					offset += 4
+				}
+				
 				let blen = length
 				
 				if (length > 0) {
