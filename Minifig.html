@@ -1,8 +1,9 @@
 <html>
-<title>2K Drive Minifig Unlocker</title>
+<title>2K Drive Unlocker</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="vehicle.css">
 <link rel="stylesheet" href="modal.css">
+<link rel="stylesheet" href="dropdown.css">
 </html>
 <body>
 <div id="app-modal" class="modal">
@@ -21,9 +22,20 @@
 	</div>
 	<div id="app"></div>
 </div>
+<script src="dropdown.js"></script>
 <script src="minifig.js"></script>
 <style>
-#char_internal {height: 28px;padding: 5px 8px;margin: 5px;margin-right: 0;border-radius: 5px 0 0 5px;border: 1px inset #ffffff5c;background: #0000001c;color: #eee;}
+#char_internal {
+	height: 30px;
+	padding: 5px 8px;
+	margin: 5px;
+	margin-right: 0;
+	margin-left: 0;
+	border-radius: 0;
+	border: 1px inset #ffffff5c;
+	background: #0000001c;
+	color: #eee;
+}
 #modal-part {
 	justify-content: center;
 }
@@ -36,6 +48,16 @@
 }
 .modal-content {
     max-width: 420px;
+}
+.dropdown-container .dropdown-toggle {
+	padding: 5px 8px;
+	padding-right: 28px;
+	margin: 5px;
+	margin-right: 0;
+	border-radius: 5px 0 0 5px;
+}
+.dropdown-menu::before, .dropdown-toggle::before {
+	right: 10px;
 }
 </style>
 </body>

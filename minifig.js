@@ -53,34 +53,102 @@ function errorShake() {
 
 function setCharacter() {
 	let inp = document.getElementById('char_internal')
-	if (inp.value && inp.value.length < saveData.reqLen) {
-		let _d = saveData.reqLen - inp.value.length
-		let torep = inp.value + '\0'.repeat(_d)
-		for (let ofs of saveData.replace_ofs) {
-			global.data.writeString(ofs, torep, saveData.reqLen)
+	
+	if (saveData.selection) {
+		let modeData = saveData.modes[saveData.selection]
+		if (inp.value && inp.value.length < modeData.reqLen) {
+			let _d = modeData.reqLen - inp.value.length
+			let torep = inp.value + '\0'.repeat(_d)
+			for (let ofs of modeData.replace_ofs) {
+				global.data.writeString(ofs, torep, modeData.reqLen)
+			}
+			inp.value = ""
 		}
-		inp.value = ""
 	}
+}
+
+function createElement(etype, ...classes) {
+	let e = document.createElement(etype)
+	for (let c of classes) {
+		e.classList.add(c)
+	}
+	return e
+}
+
+function createDropdown(name, items) {
+	let _dcont = createElement('div', 'dropdown-container')
+	let _dtoggle = createElement('div', 'dropdown-toggle', 'hover-dropdown')
+	_dtoggle.innerText = name
+	let _dmenu = createElement('div', 'dropdown-menu')
+
+	let _ul = createElement('ul')
+
+	function selectItem() {
+		_dtoggle.innerText = this.innerText
+		saveData.selection = this.innerText
+	}
+	
+	for (let item in items) {
+		let _i = createElement('li')
+		let _a = createElement('a')
+		_a.innerText = item
+		_a.href = '#'
+		_a.onclick = selectItem
+		
+		_i.appendChild(_a)
+		_ul.appendChild(_i)
+	}
+	
+	_dmenu.appendChild(_ul)
+	_dcont.appendChild(_dtoggle)
+	_dcont.appendChild(_dmenu)
+	
+	dropDownFunc(_dtoggle)
+	_dmenu.onmouseleave = closeDropdown
+	
+	return _dcont
 }
 
 function readSave() {
 	let ofs = 0x480;
 
-	const kris = 'PoliceOfficer_female_02\0'
-
-	saveData.replace_ofs = []
-	saveData.reqLen = kris.length
-	while (true) {
-		ofs = global.data.find(kris, ofs + kris.length)
-		if (ofs < 0)
-			break
-		saveData.replace_ofs.push(ofs)
+	const modes = {
+		'Minifig': 'PoliceOfficer_female_02\0',
+		'Vehicle': 'HeadlessHorsepowerOffroad_VC000\0',
 	}
+
+	saveData.selection = undefined
+	saveData.modes = {}
+
+	for (let mode in modes) {
+		let srch = modes[mode]
+
+		let modeData = {}
 		
+		modeData.replace_ofs = []
+		modeData.reqLen = srch.length
+		while (true) {
+			ofs = global.data.find(srch, ofs + srch.length)
+			if (ofs < 0)
+				break
+			modeData.replace_ofs.push(ofs)
+		}
+		
+		if (modeData.replace_ofs.length > 0) {
+			saveData.modes[mode] = modeData
+		}
+	}
+
+	let drop = createDropdown("Select", saveData.modes)
+
+	modalContent.appendChild(drop)
+
+	/*
 	let _span = document.createElement('span')
 	_span.innerText = "Character ID:"
 	modalContent.appendChild(_span)
-		
+	*/
+	
 	let inp = document.createElement('input')
 	inp.id = "char_internal"
 	modalContent.appendChild(inp)
@@ -90,8 +158,7 @@ function readSave() {
 	_set.addEventListener("click", setCharacter);
 	modalContent.appendChild(_set)
 
-	let _div = document.createElement("div")
-	_div.classList.add("modal-download-button")
+	let _div = createElement("div", "modal-download-button")
 	
 	let _btn = document.createElement("button")
 	_btn.textContent = "Download Save"
