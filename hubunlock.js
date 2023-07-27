@@ -67,10 +67,11 @@ function readSave() {
 		let pre = global.data.readString(ofs, max_len)[1]
 		if (pre != unl_str) {
 			let _d = max_len - unl_str.length
-			console.log(ofs.toString(16), max_len, unl_str.length)
-			let torep = unl_str + '\0'.repeat(_d)
-			global.data.writeString(ofs, torep, max_len)
-			saveData.maxed += 1
+			if (_d > 0) {
+				let torep = unl_str + '\0'.repeat(_d)
+				global.data.writeString(ofs, torep, max_len)
+				saveData.maxed += 1
+			}
 		}
 		ofs += max_len
 		cap -= 1
