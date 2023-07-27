@@ -3,7 +3,7 @@ document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
 
-const FILECHECK = { "name": "ArtemisPlayerInfo.sav", "script": "/Script/Artemis.ArtemisPlayerInfoSaveGame"}
+const FILECHECK = { "name": "ArtemisVehicle.sav", "script": "/Script/Artemis.ArtemisVehicleSaveGame"}
 
 const saveData = {}
 
@@ -12,6 +12,7 @@ const modal = z("app-modal")
 const modalContent = z("modal-part")
 
 function downloadSave() {
+
 	var blob = new Blob([global.data]),
 		url = window.URL.createObjectURL(blob),
 		a = document.createElement("a");
@@ -51,124 +52,43 @@ function errorShake() {
 	}, 5);
 }
 
-function setCharacter() {
-	let inp = document.getElementById('char_internal')
-	
-	if (saveData.selection) {
-		let modeData = saveData.modes[saveData.selection]
-		if (inp.value && inp.value.length < modeData.reqLen) {
-			let _d = modeData.reqLen - inp.value.length
-			let torep = inp.value + '\0'.repeat(_d)
-			for (let ofs of modeData.replace_ofs) {
-				global.data.writeString(ofs, torep, modeData.reqLen)
-			}
-			inp.value = ""
-		}
-	}
-}
-
-function createElement(etype, ...classes) {
-	let e = document.createElement(etype)
-	for (let c of classes) {
-		e.classList.add(c)
-	}
-	return e
-}
-
-function createDropdown(name, items) {
-	let _dcont = createElement('div', 'dropdown-container')
-	let _dtoggle = createElement('div', 'dropdown-toggle', 'hover-dropdown')
-	_dtoggle.innerText = name
-	let _dmenu = createElement('div', 'dropdown-menu')
-
-	let _ul = createElement('ul')
-
-	function selectItem() {
-		_dtoggle.innerText = this.innerText
-		saveData.selection = this.innerText
-	}
-	
-	for (let item in items) {
-		let _i = createElement('li')
-		let _a = createElement('a')
-		_a.innerText = item
-		_a.href = '#'
-		_a.onclick = selectItem
-		
-		_i.appendChild(_a)
-		_ul.appendChild(_i)
-	}
-	
-	_dmenu.appendChild(_ul)
-	_dcont.appendChild(_dtoggle)
-	_dcont.appendChild(_dmenu)
-	
-	dropDownFunc(_dtoggle)
-	_dmenu.onmouseleave = closeDropdown
-	
-	return _dcont
-}
-
 function readSave() {
 	let ofs = 0x480;
-
-	const modes = {
-		'Minifig': 'PoliceOfficer_female_02\0',
-		'Vehicle': 'HeadlessHorsepowerOffroad_VC000\0',
-		'Sticker': 'StickerGarage_RallyRacer_1\0',
-		'Flair': 'Flair_SuperEngineBlock_White',
-		'BrickPack': 'Brickpack_Windshield_02'
-	}
-
-	saveData.selection = undefined
-	saveData.modes = {}
-
-	for (let mode in modes) {
-		let srch = modes[mode]
-
-		let modeData = {}
-		
-		modeData.replace_ofs = []
-		modeData.reqLen = srch.length
-		while (true) {
-			ofs = global.data.find(srch, ofs + srch.length)
-			if (ofs < 0)
-				break
-			modeData.replace_ofs.push(ofs)
-		}
-		
-		if (modeData.replace_ofs.length > 0) {
-			saveData.modes[mode] = modeData
-		}
-	}
-
-	let drop = createDropdown("Select", saveData.modes)
-
-	modalContent.appendChild(drop)
-
-	/*
-	let _span = document.createElement('span')
-	_span.innerText = "Character ID:"
-	modalContent.appendChild(_span)
-	*/
+	let cap = 100
 	
-	let inp = document.createElement('input')
-	inp.id = "char_internal"
-	modalContent.appendChild(inp)
+	saveData.maxed = 0
 	
-	let _set = document.createElement("button")
-	_set.textContent = "Set"
-	_set.addEventListener("click", setCharacter);
-	modalContent.appendChild(_set)
+	const unl_str = 'ECustomVehicleParentType::Created'
+	
+	while (cap > 0) {
+		ofs = global.data.find('ECustomVehicleParentType::', ofs)
+		if (ofs < 1) break
+		let max_len = global.data.getUint32(ofs - 4, true)
+		let pre = global.data.readString(ofs, max_len)[1]
+		if (pre != unl_str) {
+			let _d = max_len - unl_str.length
+			console.log(ofs.toString(16), max_len, unl_str.length)
+			let torep = unl_str + '\0'.repeat(_d)
+			global.data.writeString(ofs, torep, max_len)
+			saveData.maxed += 1
+		}
+		ofs += max_len
+		cap -= 1
+	}
+	ofs += 0x37
 
-	let _div = createElement("div", "modal-download-button")
+	global.data.setUint32(ofs, 150000, true)
+	
+	let _div = document.createElement("div")
+	_div.classList.add("modal-download-button")
 	
 	let _btn = document.createElement("button")
 	_btn.textContent = "Download Save"
 	_btn.addEventListener("click", downloadSave);
 	
 	_div.appendChild(_btn)
-	
+
+	modalContent.textContent = `Unlocked ${saveData.maxed} Vehicles for Hub` 
 	modalContent.parentNode.appendChild(_div)
 }
 

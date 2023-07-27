@@ -1,5 +1,5 @@
 <html>
-<title>2K Drive Vehicle Editor</title>
+<title>2K Drive DrivePass Maxer</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="vehicle.css">
 <link rel="stylesheet" href="modal.css">
@@ -7,8 +7,7 @@
 <body>
 <div id="app-modal" class="modal">
 	<div class="modal-content">
-		<span class="close">&times;</span>
-		<div id="modal-part"></div>
+		<div id="modal-part">An error occured</div>
 	</div>
 </div>
 <div class="app-holder">
@@ -20,25 +19,7 @@
 			<div class="fl-file" style="height: 100%;width: 100%"><div id="filedropper">Drop<code>sav</code>here or click<input style="display:none" type='file' accept=".sav" id='fileinput'><br></div></div>
 		</form>
 	</div>
-	<div id="app">
-		<div id="app-tabs">
-		<div class="indicator">Vehicles</div>
-		</div>
-		<div id="app-body">
-			<table id="car-table" class="draggable-table">
-			<colgroup>
-				<col style="width:5%">
-				<col style="width:80%">
-				<col style="width:10%">
-				<col style="width:10%">
-			</colgroup>  
-			<thead><th>#</th><th>Part Name</th><th>Part ID</th><th>Part Color</th></thead>
-			<tbody></tbody>
-			</table>
-		</div>
-		<div id="app-tools"></div>
-	</div>
+	<div id="app"></div>
 </div>
-<script src="partdump.js"></script>
-<script src="vehicle.js"></script>
+<script src="hubunlock.js"></script>
 </body>

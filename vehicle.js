@@ -169,7 +169,7 @@ function openPart(part) {
 	if (bd) {
 		head.textContent = bd.name
 		let img = document.createElement("img")
-		img.src = bd.img
+		img.src = './resources/Bricks/' + bd.img + '.png'
 		head.appendChild(img)
 	} else {
 		head.textContent = "Unknown (" + part.id + ")"
