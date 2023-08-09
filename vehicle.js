@@ -20,6 +20,8 @@ const rightClicks = {}
 const tableStyle = document.createElement('style')
 
 var activeCar = null
+const angle_diff = 47
+const initial_angle = 56
 
 const fdi = z('fdinfo')
 function validateFile(data) {
@@ -211,11 +213,27 @@ function openPart(part) {
 
 var lastAngle = 0
 function randomColor() { /* Actually rotating, to prevent neighbouring matches */
-	lastAngle += 56
+	lastAngle += angle_diff
 	lastAngle %= 360
 	return "hsl(" + (lastAngle) + 'deg 100% 45% / 25%)'
 }
+function updateStyle(car) {
+	lastAngle = initial_angle
+	tableStyle.innerHTML = ""
+	for (let i in car.assemblies.list) {
+		let assembly = car.assemblies.list[i]
+		let col = randomColor()
 
+		tableStyle.innerHTML += `#car-table > tbody > tr:nth-child(n+${assembly.partOffset + 1}):nth-child(-n+${assembly.partOffset + assembly.numParts}):after {
+	background: ${col};
+	content: '';
+}
+#app-tools > div:nth-child(${parseInt(i) + 1}) {
+	background: ${col};
+}
+`
+	}
+}
 function openCar(car) {
 	// console.log("opening ", car)
 	checkChanges()
@@ -232,6 +250,7 @@ function openCar(car) {
 			global.data.setUint16(a.ofs, this._assembly_size, true)
 			a.numParts = this._assembly_size
 			_s.textContent = "0x" + a.ofs.toString(16) + " | " + a.numParts
+			updateStyle(car)
 		}
 		_d.addEventListener('mousedown', function(evt) {
 			if (evt.target.nodeName == 'BUTTON')
@@ -312,21 +331,7 @@ function openCar(car) {
 		
 		tr.appendChild(td)
 	}
-	
-	tableStyle.innerHTML = ""
-	for (let i in car.assemblies.list) {
-		let assembly = car.assemblies.list[i]
-		let col = randomColor()
-
-		tableStyle.innerHTML += `#car-table > tbody > tr:nth-child(n+${assembly.partOffset + 1}):nth-child(-n+${assembly.partOffset + assembly.numParts}):after {
-	background: ${col};
-	content: '';
-}
-#app-tools > div:nth-child(${parseInt(i) + 1}) {
-	background: ${col};
-}
-`
-	}
+	updateStyle(car)
 }
 
 function downloadSave() {

@@ -113,28 +113,32 @@ function readSave() {
 	let ofs = 0x480;
 
 	const modes = {
-		'Minifig': 'PoliceOfficer_female_02\0',
-		'Vehicle': 'HeadlessHorsepowerOffroad_VC000\0',
-		'Sticker': 'StickerGarage_RallyRacer_1\0',
-		'Flair': 'Flair_SuperEngineBlock_White',
-		'BrickPack': 'Brickpack_Windshield_02'
+		'Minifig': { 'str': 'PoliceOfficer_female_02\0', 'ofs': 0 },
+		'Vehicle': { 'str': 'HeadlessHorsepowerOffroad_VC000\0', 'ofs': 0 },
+		'Sticker': { 'str': 'StickerGarage_RallyRacer_1\0', 'ofs': 0 },
+		'Flair': { 'str': 'Flair_SuperEngineBlock_White', 'ofs': 0 },
+		'BrickPack': { 'str': 'Brickpack_Windshield_02', 'ofs': 0 },
+		'Surplus [1]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\018892', 'ofs': 0x45 },
+		'Surplus [2]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\087609', 'ofs': 0x45 },
+		'Surplus [3]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\018980', 'ofs': 0x45 },
 	}
 
 	saveData.selection = undefined
 	saveData.modes = {}
 
 	for (let mode in modes) {
+		ofs = 0x480
 		let srch = modes[mode]
 
 		let modeData = {}
 		
 		modeData.replace_ofs = []
-		modeData.reqLen = srch.length
+		modeData.reqLen = srch.str.length
 		while (true) {
-			ofs = global.data.find(srch, ofs + srch.length)
+			ofs = global.data.find(srch.str, ofs + srch.str.length)
 			if (ofs < 0)
 				break
-			modeData.replace_ofs.push(ofs)
+			modeData.replace_ofs.push(ofs + srch.ofs)
 		}
 		
 		if (modeData.replace_ofs.length > 0) {
