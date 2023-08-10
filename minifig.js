@@ -118,9 +118,9 @@ function readSave() {
 		'Sticker': { 'str': 'StickerGarage_RallyRacer_1\0', 'ofs': 0 },
 		'Flair': { 'str': 'Flair_SuperEngineBlock_White', 'ofs': 0 },
 		'BrickPack': { 'str': 'Brickpack_Windshield_02', 'ofs': 0 },
-		'Surplus [1]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\018892', 'ofs': 0x45 },
-		'Surplus [2]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\087609', 'ofs': 0x45 },
-		'Surplus [3]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\018980', 'ofs': 0x45 },
+		'Surplus [1]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\x0018892\0', 'ofs': 0x45 },
+		'Surplus [2]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\x0087609\0', 'ofs': 0x45 },
+		'Surplus [3]': { 'str': 'LegoPart\0\x05\0\0\0None\0\x11\0\0\0PrimaryAssetName\0\x0D\0\0\0NameProperty\0\x0A\0\0\0\0\0\0\0\0\x06\0\0\x0018980\0', 'ofs': 0x45 },
 	}
 
 	saveData.selection = undefined
@@ -133,7 +133,7 @@ function readSave() {
 		let modeData = {}
 		
 		modeData.replace_ofs = []
-		modeData.reqLen = srch.str.length
+		modeData.reqLen = srch.str.length - srch.ofs
 		while (true) {
 			ofs = global.data.find(srch.str, ofs + srch.str.length)
 			if (ofs < 0)
