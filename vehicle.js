@@ -118,7 +118,11 @@ function writeSave() {
 			global.data.setFloat(ofs, part.vector.x)
 			global.data.setFloat(ofs + 4, part.vector.y)
 			global.data.setFloat(ofs + 8, part.vector.z)
-			ofs += 0x63
+			ofs += 0x4F
+			global.data.setFloat(ofs, part.scale.x)
+			global.data.setFloat(ofs + 4, part.scale.y)
+			global.data.setFloat(ofs + 8, part.scale.z)
+			ofs += 0x14
 		}
 		
 	}
@@ -195,7 +199,7 @@ function openPart(part) {
 	let vec = document.createElement("div")
 	vec.classList.add("vec")
 	span = document.createElement("p")
-	span.textContent = "Vector"
+	span.textContent = "Position"
 	vec.appendChild(span)
 	for (let k in part.vector) {
 		let _in = customInput(vec, k.toUpperCase(), k == 'z' ? 10.0 : 12.5)
@@ -207,8 +211,24 @@ function openPart(part) {
 		});
 	}
 	
+	let scal = document.createElement("div")
+	scal.classList.add("vec")
+	span = document.createElement("p")
+	span.textContent = "Scale"
+	scal.appendChild(span)
+	for (let k in part.scale) {
+		let _in = customInput(scal, k.toUpperCase(), 0.05)
+		_in.value = part.scale[k]
+		
+		_in.addEventListener("change", function(e) {
+			part.scale[k] = parseFloat(this.value)
+			part.modified = true
+		});
+	}
+	
 	modalContent.appendChild(quat)
 	modalContent.appendChild(vec)
+	modalContent.appendChild(scal)
 }
 
 var lastAngle = 0
@@ -440,9 +460,13 @@ function readSave() {
 					x = global.data.getFloat(ofs)
 					y = global.data.getFloat(ofs + 4)
 					z = global.data.getFloat(ofs + 8)
-					ofs += 0x63
-
 					part.vector = { 'x': x, 'y': y, 'z': z }
+					ofs += 0x4F
+					x = global.data.getFloat(ofs)
+					y = global.data.getFloat(ofs + 4)
+					z = global.data.getFloat(ofs + 8)
+					part.scale = { 'x': x, 'y': y, 'z': z }
+					ofs += 0x14
 				}
 
 				saveData.cars.push(carData)

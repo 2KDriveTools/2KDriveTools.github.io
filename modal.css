@@ -42,6 +42,7 @@
 .quat, .vec {
     display: flex;
     flex-direction: column;
+    margin-right: 25px;
 }
 .quat > label, .vec > label {
 	padding: 5px;
@@ -67,6 +68,8 @@
 #modal-part {
 	display: flex;
 	justify-content: space-evenly;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .spinner {
