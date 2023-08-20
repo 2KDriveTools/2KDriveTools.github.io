@@ -58,25 +58,24 @@ function readSave() {
 	
 	saveData.maxed = 0
 	
-	const unl_str = 'ECustomVehicleParentType::Created'
+	const srch = 'Upvoted\0\x0D\0\0\0BoolProperty\0'
 	
 	while (cap > 0) {
-		ofs = global.data.find('ECustomVehicleParentType::', ofs)
+		ofs = global.data.find(srch, ofs)
 		if (ofs < 1) break
-		let max_len = global.data.getUint32(ofs - 4, true)
-		let pre = global.data.readString(ofs, max_len)[1]
-		if (pre != unl_str) {
-			let _d = max_len - unl_str.length
-			if (_d > 0) {
-				let torep = unl_str + '\0'.repeat(_d)
-				global.data.writeString(ofs, torep, max_len)
-				saveData.maxed += 1
-			}
+		ofs += 0x21
+		
+		// global.data.writeString(ofs, torep, max_len)
+		let s = global.data.getInt8(ofs)
+
+		if (s == 1) {
+			global.data.setInt8(ofs, 0)
+			saveData.maxed += 1
 		}
-		ofs += max_len
+
 		cap -= 1
 	}
-	
+
 	let _div = document.createElement("div")
 	_div.classList.add("modal-download-button")
 	
@@ -86,7 +85,7 @@ function readSave() {
 	
 	_div.appendChild(_btn)
 
-	modalContent.textContent = `Unlocked ${saveData.maxed} Vehicles for Hub` 
+	modalContent.textContent = `Unvoted ${saveData.maxed} Vehicles from` 
 	modalContent.parentNode.appendChild(_div)
 }
 

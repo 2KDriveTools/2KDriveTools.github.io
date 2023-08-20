@@ -67,9 +67,6 @@ function readSave() {
 		saveData.maxed += 1
 		cap -= 1
 	}
-	ofs += 0x37
-
-	global.data.setUint32(ofs, 150000, true)
 	
 	let _div = document.createElement("div")
 	_div.classList.add("modal-download-button")
