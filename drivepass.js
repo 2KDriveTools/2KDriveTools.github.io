@@ -55,21 +55,36 @@ function readSave() {
 	let ofs = 0x480;
 
 	let prem = global.data.find('UnlockedDrivePasses\0\x0E\0\0\0ArrayProperty\0\x08\0\0\0\0\0\0\0\x0D\0\0\0BoolProperty\0\0')
-	var isPremium = false
+	var isPremium = []
 	if (prem > 1) {
 		prem += 0x40
-		isPremium = (global.data.getUint32(prem, true) > 0) && (global.data.getInt8(prem + 4) != 0)
+		let sz = global.data.getUint32(prem, true)
+		prem += 4
+		for (; sz > 0; sz--) {
+			isPremium.push(global.data.getUint8(prem, true) > 0)
+			prem += 1
+		}
 	}
+	console.log(isPremium)
 	
 	ofs = global.data.find('DXPList\0\x0E\0\0\0ArrayProperty\0')
 	if (ofs > 0) {
-		ofs += 0x37
-		if (isPremium) {
-			global.data.setUint32(ofs, 150000, true)
-			modalContent.textContent = `Set Premium DrivePass Level to 100` 
-		} else {
-			global.data.setUint32(ofs, 149000, true)
-			modalContent.textContent = `Set DrivePass Level to 99` 
+		ofs += 0x33
+		let sz = global.data.getUint32(ofs, true)
+		ofs += 4
+		modalContent.innerHTML = ""
+		for (let i = 0; i < sz; i++) {
+			let c = ""
+			if (isPremium[i]) {
+				c = `Set Premium DrivePass ${i+1} Level to 100` 
+				global.data.setUint32(ofs + 4 * i, 150000, true)
+			} else {
+				c = `Set DrivePass ${i+1} Level to 99` 
+				global.data.setUint32(ofs + 4 * i, 149000, true)
+			}
+			let s = document.createElement("li")
+			s.innerText = c
+			modalContent.appendChild(s)
 		}
 
 		let _div = document.createElement("div")
