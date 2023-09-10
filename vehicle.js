@@ -387,10 +387,14 @@ function readSave() {
 				[ len, name ] = global.data.readString(ofs, len);
 				ofs += len
 
+				console.log(ofs, len)
+
 				ofs = global.data.find("Parts\0\x0F\0\0\0StructProperty\0", ofs)
 				ofs += 25
 
 				let size = global.data.getUint32(ofs, true)
+				
+				console.log(size)
 				
 				ofs += 51
 
@@ -398,16 +402,20 @@ function readSave() {
 				let ass_size = global.data.getUint32(ass_ofs + 0x1D, true) + 0x1D
 				let ass_list = []
 				let l_ofs = ass_ofs
+				let last_ofs = 0
 				while (l_ofs > 0) {
 					l_ofs = global.data.find("PartOffset\0\x0F\0\0\0UInt16Property\0", l_ofs) 
 					if (l_ofs > (ass_ofs + ass_size))
 						break
+					if (l_ofs < last_ofs)
+						break
+					last_ofs = l_ofs
 					
 					l_ofs += 0x27
 					let pofs = global.data.getUint16(l_ofs, true)
 					
 					l_ofs = global.data.find("NumParts\0\x0F\0\0\0UInt16Property\0", l_ofs) 
-					
+
 					l_ofs += 0x25
 					let pval = global.data.getUint16(l_ofs, true)
 					
@@ -426,7 +434,8 @@ function readSave() {
 				}
 
 				let pcount = size / 8;
-
+				console.log(pcount)
+				
 				for (let i = 0; i < pcount; i++) {
 					let partid = global.data.getUint32(ofs, true)
 					ofs += 4
@@ -473,7 +482,7 @@ function readSave() {
 			}
 		}
 	}
-	
+	console.log("Save loaded?")
 	
 	
 	for (let carnum in saveData.cars) {
