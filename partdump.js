@@ -72,7 +72,7 @@ const BrickData = {
   "1846": {
     "id": 1846,
     "name": "MUDGUARD 3X4X1 2/3",
-    "img": "Unknown",
+    "img": "T_1846_Icon",
     "aliases": [
       1846
     ],
@@ -1121,7 +1121,7 @@ const BrickData = {
   "2528": {
     "id": 2528,
     "name": "ADMIRAL'S HAT",
-    "img": "Unknown",
+    "img": "T_2528_Icon",
     "aliases": [
       2528
     ],
@@ -1503,6 +1503,20 @@ const BrickData = {
       "X": 6,
       "Y": 6,
       "Z": 3
+    }
+  },
+  "2628": {
+    "id": 2628,
+    "name": "PLATE 8X8X2/3, W/ 4 CUT OUT, NO. 1",
+    "img": "Unknown",
+    "aliases": [
+      2628
+    ],
+    "mass": 362.54883,
+    "size": {
+      "X": 8,
+      "Y": 8,
+      "Z": 2
     }
   },
   "2634": {
@@ -8543,6 +8557,20 @@ const BrickData = {
       "Z": 4
     }
   },
+  "10190": {
+    "id": 10190,
+    "name": "FROGMAN'S FOOT",
+    "img": "Unknown",
+    "aliases": [
+      10190
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 0
+    }
+  },
   "10197": {
     "id": 10197,
     "name": "BEAM 1M W. 2 CROSS AXLES 90°",
@@ -8669,6 +8697,22 @@ const BrickData = {
       "X": 4,
       "Y": 1,
       "Z": 10
+    }
+  },
+  "10884": {
+    "id": 10884,
+    "name": "FINGER LEAF",
+    "img": "Unknown",
+    "aliases": [
+      10884,
+      42949,
+      30239
+    ],
+    "mass": 58.59375,
+    "size": {
+      "X": 6,
+      "Y": 6,
+      "Z": 4
     }
   },
   "10928": {
@@ -9564,6 +9608,21 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 6
+    }
+  },
+  "14137": {
+    "id": 14137,
+    "name": "FLAP 2X8 FRICTION/FORK",
+    "img": "Unknown",
+    "aliases": [
+      14137,
+      50334
+    ],
+    "mass": 65.30762,
+    "size": {
+      "X": 9,
+      "Y": 2,
+      "Z": 1
     }
   },
   "14181": {
@@ -10468,7 +10527,7 @@ const BrickData = {
   "15745": {
     "id": 15745,
     "name": "HEART W/ Ø3,2 SHAFT",
-    "img": "Unknown",
+    "img": "T_15745_Icon",
     "aliases": [
       15745,
       28682
@@ -10708,6 +10767,20 @@ const BrickData = {
       "X": 3,
       "Y": 2,
       "Z": 5
+    }
+  },
+  "18394": {
+    "id": 18394,
+    "name": "WING FIRE W/SHAFT Ø3.2 MM/4 MM",
+    "img": "Unknown",
+    "aliases": [
+      18394
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 3,
+      "Y": 0,
+      "Z": 9
     }
   },
   "18395": {
@@ -12122,6 +12195,20 @@ const BrickData = {
       "Z": 6
     }
   },
+  "24196": {
+    "id": 24196,
+    "name": "CREATURE HEAD, NO. 17",
+    "img": "Unknown",
+    "aliases": [
+      24196
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 6,
+      "Y": 5,
+      "Z": 9
+    }
+  },
   "24201": {
     "id": 24201,
     "name": "PLATE, W/ HALF BOW, INV. 1X2X2/3",
@@ -12535,6 +12622,20 @@ const BrickData = {
       "X": 1,
       "Y": 2,
       "Z": 1
+    }
+  },
+  "26170": {
+    "id": 26170,
+    "name": "BARREL 2X2",
+    "img": "Unknown",
+    "aliases": [
+      26170
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 5
     }
   },
   "26556": {
@@ -14696,6 +14797,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "30382": {
+    "id": 30382,
+    "name": "ROOF TILE 2X16X1, 11°",
+    "img": "Unknown",
+    "aliases": [
+      30382
+    ],
+    "mass": 175.47607,
+    "size": {
+      "X": 16,
+      "Y": 2,
+      "Z": 3
+    }
+  },
   "30383": {
     "id": 30383,
     "name": "PLATE 1X2 W/STUB/ALONG/UPPER P",
@@ -16522,6 +16637,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "33061": {
+    "id": 33061,
+    "name": "DRINKING GLASS",
+    "img": "Unknown",
+    "aliases": [
+      33061
+    ],
+    "mass": 15.258789,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 6
+    }
+  },
   "33078": {
     "id": 33078,
     "name": "SAUSAGE",
@@ -16769,7 +16898,7 @@ const BrickData = {
   "33322": {
     "id": 33322,
     "name": "DIADEM",
-    "img": "Unknown",
+    "img": "T_33322_Icon",
     "aliases": [
       29171,
       33322
@@ -16779,6 +16908,21 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 3
+    }
+  },
+  "33492": {
+    "id": 33492,
+    "name": "MINI HAT, NO. 46",
+    "img": "T_33492_Icon",
+    "aliases": [
+      33492,
+      100788
+    ],
+    "mass": 6.1035156,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 2
     }
   },
   "33499": {
@@ -16824,6 +16968,20 @@ const BrickData = {
       "Z": 1
     }
   },
+  "34172": {
+    "id": 34172,
+    "name": "KITCHEN EQUIPMENT, NO. 5",
+    "img": "T_34172_Icon",
+    "aliases": [
+      34172
+    ],
+    "mass": 6.713867,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 1
+    }
+  },
   "35044": {
     "id": 35044,
     "name": "PLATE 4X4, W/ ARCH",
@@ -16836,6 +16994,20 @@ const BrickData = {
       "X": 4,
       "Y": 4,
       "Z": 1
+    }
+  },
+  "35157": {
+    "id": 35157,
+    "name": "GLASS FOR DOOR",
+    "img": "T_35157_Icon",
+    "aliases": [
+      35157
+    ],
+    "mass": 33.87451,
+    "size": {
+      "X": 2,
+      "Y": 0,
+      "Z": 8
     }
   },
   "35164": {
@@ -17276,7 +17448,7 @@ const BrickData = {
   "35744": {
     "id": 35744,
     "name": "SWORD",
-    "img": "Unknown",
+    "img": "T_35744_Icon",
     "aliases": [
       35744
     ],
@@ -17475,7 +17647,7 @@ const BrickData = {
   "38320": {
     "id": 38320,
     "name": "BARS FOR FRAME 1X2X2",
-    "img": "Unknown",
+    "img": "T_38320_Icon",
     "aliases": [
       38320
     ],
@@ -17489,7 +17661,7 @@ const BrickData = {
   "39262": {
     "id": 39262,
     "name": "CROWN, NO. 1",
-    "img": "Unknown",
+    "img": "T_39262_Icon",
     "aliases": [
       39262
     ],
@@ -17498,6 +17670,20 @@ const BrickData = {
       "X": 2,
       "Y": 2,
       "Z": 3
+    }
+  },
+  "39739": {
+    "id": 39739,
+    "name": "TILE 1X1, HEART, NO. 1",
+    "img": "T_39739_Icon",
+    "aliases": [
+      39739
+    ],
+    "mass": 4.272461,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 1
     }
   },
   "40244": {
@@ -17598,6 +17784,20 @@ const BrickData = {
       "X": 3,
       "Y": 2,
       "Z": 3
+    }
+  },
+  "40934": {
+    "id": 40934,
+    "name": "CREATURE JAW, NO. 6",
+    "img": "Unknown",
+    "aliases": [
+      40934
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 5,
+      "Y": 4,
+      "Z": 5
     }
   },
   "40996": {
@@ -17957,7 +18157,7 @@ const BrickData = {
   "41835": {
     "id": 41835,
     "name": "BIRD, NO. 9",
-    "img": "Unknown",
+    "img": "T_41835_Icon",
     "aliases": [
       41835
     ],
@@ -18197,6 +18397,20 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 5
+    }
+  },
+  "42716": {
+    "id": 42716,
+    "name": "RIM WIDE DIA.30X20 W/ CROSS HOLE, NO. 1",
+    "img": "T_42716_Icon",
+    "aliases": [
+      42716
+    ],
+    "mass": 91.552734,
+    "size": {
+      "X": 4,
+      "Y": 2,
+      "Z": 9
     }
   },
   "42863": {
@@ -19591,6 +19805,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "49308": {
+    "id": 49308,
+    "name": "SPHERE 3X3X11/3, W/ KNOB",
+    "img": "Unknown",
+    "aliases": [
+      49308
+    ],
+    "mass": 64.086914,
+    "size": {
+      "X": 3,
+      "Y": 3,
+      "Z": 4
+    }
+  },
   "49311": {
     "id": 49311,
     "name": "BRICK 1X4X3",
@@ -20060,6 +20288,34 @@ const BrickData = {
       "Z": 3
     }
   },
+  "51239": {
+    "id": 51239,
+    "name": "FRAME 1X3X3",
+    "img": "T_51239_Icon",
+    "aliases": [
+      51239
+    ],
+    "mass": 48.828125,
+    "size": {
+      "X": 3,
+      "Y": 1,
+      "Z": 9
+    }
+  },
+  "51266": {
+    "id": 51266,
+    "name": "GLASS FOR FRAME 1X3X3",
+    "img": "T_51266_Icon",
+    "aliases": [
+      51266
+    ],
+    "mass": 23.19336,
+    "size": {
+      "X": 3,
+      "Y": 0,
+      "Z": 7
+    }
+  },
   "51270": {
     "id": 51270,
     "name": "VEGETABLE, NO. 3",
@@ -20277,6 +20533,20 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 5
+    }
+  },
+  "53540": {
+    "id": 53540,
+    "name": "BRICK 1X2 W. DOUBLE SNAP",
+    "img": "Unknown",
+    "aliases": [
+      53540
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 3
     }
   },
   "53585": {
@@ -20826,7 +21096,7 @@ const BrickData = {
   "57359": {
     "id": 57359,
     "name": "DOUBLE SNAP 2M W/ STUB",
-    "img": "Unknown",
+    "img": "T_57359_Icon",
     "aliases": [
       57359
     ],
@@ -20996,6 +21266,20 @@ const BrickData = {
       "X": 6,
       "Y": 3,
       "Z": 3
+    }
+  },
+  "58213": {
+    "id": 58213,
+    "name": "CREATURE ARM, NO. 3",
+    "img": "Unknown",
+    "aliases": [
+      58213
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 1,
+      "Y": 2,
+      "Z": 2
     }
   },
   "58367": {
@@ -21233,7 +21517,7 @@ const BrickData = {
   "60115": {
     "id": 60115,
     "name": "SKELETON BODY W SHAFT 3.2",
-    "img": "Unknown",
+    "img": "T_60115_Icon",
     "aliases": [
       60115,
       78132
@@ -22979,6 +23263,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "65198": {
+    "id": 65198,
+    "name": "WHEEL BEARING 6X10X1,W/ MINI SNAP,PART 1",
+    "img": "Unknown",
+    "aliases": [
+      65198
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 10,
+      "Y": 6,
+      "Z": 3
+    }
+  },
   "65202": {
     "id": 65202,
     "name": "WHEEL BEARING 6X10X1, W/ MINI SNAP",
@@ -23051,6 +23349,20 @@ const BrickData = {
       "Z": 7
     }
   },
+  "65474": {
+    "id": 65474,
+    "name": "TILE 6X8, CIRCLE, NO. 1",
+    "img": "Unknown",
+    "aliases": [
+      65474
+    ],
+    "mass": 127.2583,
+    "size": {
+      "X": 8,
+      "Y": 6,
+      "Z": 1
+    }
+  },
   "65509": {
     "id": 65509,
     "name": "PLATE 2X4, W/ 2 KNOBS",
@@ -23063,6 +23375,20 @@ const BrickData = {
       "X": 4,
       "Y": 2,
       "Z": 1
+    }
+  },
+  "65578": {
+    "id": 65578,
+    "name": "HANDLE, NO. 1",
+    "img": "T_65578_Icon",
+    "aliases": [
+      65578
+    ],
+    "mass": 4.8828125,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 3
     }
   },
   "65632": {
@@ -23163,6 +23489,20 @@ const BrickData = {
       "Z": 5
     }
   },
+  "66792": {
+    "id": 66792,
+    "name": "PLATE, 4X4X2/3, CIRCLE, W/ REDUCED KNOBS",
+    "img": "Unknown",
+    "aliases": [
+      66792
+    ],
+    "mass": 76.293945,
+    "size": {
+      "X": 4,
+      "Y": 4,
+      "Z": 2
+    }
+  },
   "66897": {
     "id": 66897,
     "name": "WHEEL BEARING 1X2X1/3 W/ MINI SNAP",
@@ -23206,6 +23546,21 @@ const BrickData = {
       "Z": 3
     }
   },
+  "66956": {
+    "id": 66956,
+    "name": "PLATE W/ BOW 2X2X2/3, 45 DEG.",
+    "img": "Unknown",
+    "aliases": [
+      66956,
+      75468
+    ],
+    "mass": 15.258789,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 2
+    }
+  },
   "67095": {
     "id": 67095,
     "name": "TILE 3X3, CIRCLE, NO. 1",
@@ -23218,6 +23573,34 @@ const BrickData = {
       "X": 3,
       "Y": 3,
       "Z": 1
+    }
+  },
+  "67142": {
+    "id": 67142,
+    "name": "LEFT PANEL CURVED 5X13X2, NO. 1 (LDDPRO)",
+    "img": "Unknown",
+    "aliases": [
+      67142
+    ],
+    "mass": 202.02637,
+    "size": {
+      "X": 13,
+      "Y": 5,
+      "Z": 4
+    }
+  },
+  "67329": {
+    "id": 67329,
+    "name": "BRICK 1X2X1 2/3, W/ 8 KNOBS",
+    "img": "Unknown",
+    "aliases": [
+      67329
+    ],
+    "mass": 41.19873,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 5
     }
   },
   "67446": {
@@ -23262,10 +23645,24 @@ const BrickData = {
       "Z": 3
     }
   },
+  "68196": {
+    "id": 68196,
+    "name": "RIGHT PANEL CURVED 5X13X2, NO. 1 (LDDPRO)",
+    "img": "Unknown",
+    "aliases": [
+      68196
+    ],
+    "mass": 198.36426,
+    "size": {
+      "X": 13,
+      "Y": 5,
+      "Z": 4
+    }
+  },
   "68547": {
     "id": 68547,
     "name": "MINI ACCESSORY, NO. 17",
-    "img": "Unknown",
+    "img": "T_68547_Icon",
     "aliases": [
       68547
     ],
@@ -23302,6 +23699,34 @@ const BrickData = {
       "X": 3,
       "Y": 3,
       "Z": 1
+    }
+  },
+  "68869": {
+    "id": 68869,
+    "name": "TILE 4X4X2/3, CIRCLE, W/O KNOBS",
+    "img": "Unknown",
+    "aliases": [
+      68869
+    ],
+    "mass": 67.13867,
+    "size": {
+      "X": 4,
+      "Y": 4,
+      "Z": 2
+    }
+  },
+  "69066": {
+    "id": 69066,
+    "name": "OPEN BOX 1X3",
+    "img": "Unknown",
+    "aliases": [
+      69066
+    ],
+    "mass": 19.226074,
+    "size": {
+      "X": 3,
+      "Y": 1,
+      "Z": 2
     }
   },
   "69720": {
@@ -23544,6 +23969,20 @@ const BrickData = {
       "Z": 4
     }
   },
+  "72046": {
+    "id": 72046,
+    "name": "DESIGN PLATE, 1X1X2/3, NO. 4",
+    "img": "Unknown",
+    "aliases": [
+      72046
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 1
+    }
+  },
   "72206": {
     "id": 72206,
     "name": "WHEEL, DIA. 24X12",
@@ -23671,6 +24110,20 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 6
+    }
+  },
+  "73683": {
+    "id": 73683,
+    "name": "3.2 HOLDER, W/ KNOB",
+    "img": "Unknown",
+    "aliases": [
+      73683
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 2
     }
   },
   "73825": {
@@ -23915,6 +24368,34 @@ const BrickData = {
       "Z": 3
     }
   },
+  "77180": {
+    "id": 77180,
+    "name": "LEFT SHELL 2X10X2, OUTSIDE BOW, W/ CUT",
+    "img": "T_77180_Icon",
+    "aliases": [
+      77180
+    ],
+    "mass": 122.07031,
+    "size": {
+      "X": 10,
+      "Y": 2,
+      "Z": 6
+    }
+  },
+  "77182": {
+    "id": 77182,
+    "name": "RIGHT SHELL 2X10X2, OUTSIDE BOW, W/ CUT",
+    "img": "T_77182_Icon",
+    "aliases": [
+      77182
+    ],
+    "mass": 122.07031,
+    "size": {
+      "X": 10,
+      "Y": 2,
+      "Z": 6
+    }
+  },
   "77807": {
     "id": 77807,
     "name": "PLATE 1X2 W/ 3.2 HOLDER, NO.2",
@@ -24083,6 +24564,20 @@ const BrickData = {
       "Z": 3
     }
   },
+  "79128": {
+    "id": 79128,
+    "name": "FRAME 1X2X2",
+    "img": "Unknown",
+    "aliases": [
+      79128
+    ],
+    "mass": 46.628326,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 6
+    }
+  },
   "79194": {
     "id": 79194,
     "name": "3.2 SHAFT W/ KNOB",
@@ -24094,6 +24589,20 @@ const BrickData = {
     "size": {
       "X": 1,
       "Y": 1,
+      "Z": 2
+    }
+  },
+  "79387": {
+    "id": 79387,
+    "name": "PLATE 4X4X2/3, CIRCLE, 2X2 HOLE",
+    "img": "Unknown",
+    "aliases": [
+      79387
+    ],
+    "mass": 70.19043,
+    "size": {
+      "X": 4,
+      "Y": 4,
       "Z": 2
     }
   },
@@ -24235,6 +24744,20 @@ const BrickData = {
       "X": 3,
       "Y": 2,
       "Z": 3
+    }
+  },
+  "80497": {
+    "id": 80497,
+    "name": "ELEPHANT TRUNK",
+    "img": "Unknown",
+    "aliases": [
+      80497
+    ],
+    "mass": 25.024414,
+    "size": {
+      "X": 3,
+      "Y": 1,
+      "Z": 9
     }
   },
   "81911": {
@@ -26188,6 +26711,20 @@ const BrickData = {
       "Z": 4
     }
   },
+  "92911": {
+    "id": 92911,
+    "name": "POWER JOINT",
+    "img": "Unknown",
+    "aliases": [
+      92911
+    ],
+    "mass": 106.81152,
+    "size": {
+      "X": 3,
+      "Y": 3,
+      "Z": 7
+    }
+  },
   "92926": {
     "id": 92926,
     "name": "DUSTBIN 2x2x2",
@@ -27418,6 +27955,21 @@ const BrickData = {
       "Z": 4
     }
   },
+  "98369": {
+    "id": 98369,
+    "name": "MINI CLEAVER W/ DIA. 3,2, SHAFT",
+    "img": "T_98369_Icon",
+    "aliases": [
+      98369,
+      79811
+    ],
+    "mass": 7.019043,
+    "size": {
+      "X": 1,
+      "Y": 0,
+      "Z": 5
+    }
+  },
   "98372": {
     "id": 98372,
     "name": "MINI STEAK W/ Ø3,2 SHAFT",
@@ -27459,6 +28011,20 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 6
+    }
+  },
+  "98383": {
+    "id": 98383,
+    "name": "MINI MAGIC OIL LAMP",
+    "img": "Unknown",
+    "aliases": [
+      98383
+    ],
+    "mass": 9.155273,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 2
     }
   },
   "98386": {
