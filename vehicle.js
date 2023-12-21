@@ -3,7 +3,7 @@ document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
 
-const FILECHECK = { "name": "ArtemisVehicle.sav", "script": "/Script/Artemis.ArtemisVehicleSaveGame"}
+const FILECHECK = { "name": "ArtemisVehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
 
 const saveData = {}
 
@@ -33,20 +33,28 @@ function validateFile(data) {
 	let name
 	[ len, name ] = global.data.readString(ofs, len);
 
-	return name == FILECHECK.script
+	if (FILECHECK.scripts.includes(name)) {
+		saveData.script = name;
+		return true
+	}
+	
+	return false;
 }
 (()=>{
 	let c = document.querySelector('#filedropper > code')
 	c.innerText = FILECHECK.name
 })()
-function errorShake() {
+function errorShake(err) {
 	fdi.classList.remove('error')
 	setTimeout(function() {
-		fdi.style.opacity = "1";
-		fdi.style.top = "calc(70% + 50px)";
 		fd.classList.add('error')
 		fdi.classList.add('error')
-		fd.style.border = '';
+		fdi.firstElementChild.innerText = err;
+		// fd.style.border = '';
+		setTimeout(function() {
+			fd.classList.remove('error')
+			fdi.classList.remove('error')
+		}, 4500);
 	}, 5);
 }
 
@@ -374,7 +382,7 @@ function readSave() {
 	let cap = 50;
 	
 	saveData.cars = []
-	
+
 	while (ofs > 0 && cap > 0) {
 		cap -= 1
 		ofs = global.data.find('VehicleName', ofs)
@@ -428,7 +436,7 @@ function readSave() {
 				}
 
 				let pcount = size / 8;
-				console.log(pcount)
+				// console.log(pcount)
 				
 				for (let i = 0; i < pcount; i++) {
 					let partid = global.data.getUint32(ofs, true)
@@ -476,8 +484,7 @@ function readSave() {
 			}
 		}
 	}
-	console.log("Save loaded?")
-	
+
 	
 	for (let carnum in saveData.cars) {
 		let car = saveData.cars[carnum]
@@ -498,19 +505,24 @@ function readSave() {
 
 		tabs.appendChild(elem)
 	}
-	openCar(saveData.cars[0])
-	tabs.children[0].classList.add("active")
+	if (saveData.cars.length > 0) {
+		openCar(saveData.cars[0])
+		tabs.children[0].classList.add("active")
 
-	let _div = document.createElement("div")
-	_div.classList.add("download-button")
-	
-	let _btn = document.createElement("button")
-	_btn.textContent = "Download Save"
-	_btn.addEventListener("click", downloadSave);
-	
-	_div.appendChild(_btn)
+		let _div = document.createElement("div")
+		_div.classList.add("download-button")
+		
+		let _btn = document.createElement("button")
+		_btn.textContent = "Download Save"
+		_btn.addEventListener("click", downloadSave);
+		
+		_div.appendChild(_btn)
 
-	app.appendChild(_div)
+		app.appendChild(_div)
+		
+		return true;
+	}
+	return false;
 }
 
 function loadFile(f = null) {
@@ -569,14 +581,17 @@ function loadFile(f = null) {
 			global.data.str = global.dec.decode(u8arr)
 			
 			if (validateFile(global.data)) {
-				var md = document.getElementsByClassName('dataform-input')[0];
-				md.style.opacity = "0";
-				setTimeout(function() {
-					md.parentNode.removeChild(md);
-				}, 300);
-				readSave()
+				if (readSave()) {
+					var md = document.getElementsByClassName('dataform-input')[0];
+					md.style.opacity = "0";
+					setTimeout(function() {
+						md.parentNode.removeChild(md);
+					}, 300);
+				} else {
+					errorShake("No Cars found")	
+				}
 			} else {
-				errorShake()
+				errorShake("Invalid File")
 			}
 		}
 	}

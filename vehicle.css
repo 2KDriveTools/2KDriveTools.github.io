@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.dataform-input{
+.dataform-input {
 	width: 100%;
 	justify-content: center;
 	align-items: center;
@@ -19,6 +19,20 @@
 
 #fdinfo + .form {
 	height: 40%;
+}
+#fdinfo + .form, #fdinfo + .form * {
+	transition: color ease-in-out 300ms, border-color ease-in-out 300ms
+}
+
+#fdinfo.error + .form {
+	border-color: #ff2f2fe0 !important;
+}
+#fdinfo {
+	opactiy: 0;
+}
+#fdinfo.error {
+	opacity: 1;
+	top: calc(70% + 50px);
 }
 
 .dataform-input .form {
