@@ -3,6 +3,10 @@ document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
 
+const SETTINGS = {
+	SHOW_SCALE: false,
+}
+
 const FILECHECK = { "name": "ArtemisVehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
 
 const saveData = {}
@@ -19,7 +23,15 @@ const rightClicks = {}
 
 const tableStyle = document.createElement('style')
 
-var activeCar = null
+const context = {
+	clear: function() {
+		let s = arguments.callee.name;
+		for (k in this) 
+			if (k != s)
+				delete this[k]
+	}
+}
+
 const angle_diff = 47
 const initial_angle = 56
 
@@ -71,11 +83,11 @@ function comparePart(a, b) {
 }
 
 function checkChanges() {
-	if (activeCar === null)
+	if (context.activeCar === null)
 		return
 	
 	let elems = Array.from(tbody.children)
-	let car = activeCar
+	let car = context.activeCar
 	
 	let nparts = []
 	let modified = false;
@@ -136,45 +148,46 @@ function writeSave() {
 	}
 }
 
-function openPart(part) {
-	function customInput(base, label, step = 0) {
-		let _in = document.createElement("input")
-		let span = document.createElement("label")
-		span.classList.add("custom-input")
-		span.textContent = label
-		base.appendChild(span)
-		span.appendChild(_in)
-		
-		if (step != 0) {
-			let up = document.createElement("button")
-			up.classList.add("up"); up.classList.add("spinner")
-			up.innerHTML = "&rsaquo;"
-			let down = document.createElement("button")
-			down.classList.add("down"); down.classList.add("spinner")
-			down.innerHTML = "&lsaquo;"
-
-			span.appendChild(up)
-			span.appendChild(down)
-			
-			const event = new Event('change');
-
-			up.addEventListener("click", () => {
-				_in.value -= -step
-				_in.dispatchEvent(event);
-			});
-			
-			down.addEventListener("click", () => {
-				_in.value -= step
-				_in.dispatchEvent(event);
-			});
-		}
-
-		_in.type = "number"	
-
-		return _in
-	}
+function customInput(base, label, step = 0) {
+	let _in = document.createElement("input")
+	let span = document.createElement("label")
+	span.classList.add("custom-input")
+	span.textContent = label
+	base.appendChild(span)
+	span.appendChild(_in)
 	
+	if (step != 0) {
+		let up = document.createElement("button")
+		up.classList.add("up"); up.classList.add("spinner")
+		up.innerHTML = "&rsaquo;"
+		let down = document.createElement("button")
+		down.classList.add("down"); down.classList.add("spinner")
+		down.innerHTML = "&lsaquo;"
+
+		span.appendChild(up)
+		span.appendChild(down)
+		
+		const event = new Event('change');
+
+		up.addEventListener("click", () => {
+			_in.value -= -step
+			_in.dispatchEvent(event);
+		});
+		
+		down.addEventListener("click", () => {
+			_in.value -= step
+			_in.dispatchEvent(event);
+		});
+	}
+
+	_in.type = "number"	
+
+	return _in
+}
+
+function openPart(part) {
 	modal.style.display = "block";
+	modalContent.innerHTML = ""
 	
 	let head = document.createElement("div")
 	let bd = BrickData[""+part.id]
@@ -219,24 +232,59 @@ function openPart(part) {
 		});
 	}
 	
-	let scal = document.createElement("div")
-	scal.classList.add("vec")
-	span = document.createElement("p")
-	span.textContent = "Scale"
-	scal.appendChild(span)
-	for (let k in part.scale) {
-		let _in = customInput(scal, k.toUpperCase(), 0.05)
-		_in.value = part.scale[k]
-		
-		_in.addEventListener("change", function(e) {
-			part.scale[k] = parseFloat(this.value)
-			part.modified = true
-		});
-	}
-	
 	modalContent.appendChild(quat)
 	modalContent.appendChild(vec)
-	modalContent.appendChild(scal)
+
+	if (SETTINGS.SHOW_SCALE) {
+		let scal = document.createElement("div")
+		scal.classList.add("vec")
+		span = document.createElement("p")
+		span.textContent = "Scale"
+		scal.appendChild(span)
+		for (let k in part.scale) {
+			let _in = customInput(scal, k.toUpperCase(), 0.05)
+			_in.value = part.scale[k]
+			
+			_in.addEventListener("change", function(e) {
+				part.scale[k] = parseFloat(this.value)
+				part.modified = true
+			});
+		}
+
+		modalContent.appendChild(scal)
+	}
+	
+	let footer = document.createElement("div")
+	footer.classList.add("modal-footer")
+	modalContent.appendChild(footer)
+
+	let cpy = document.createElement("button")
+	cpy.textContent = "Copy Data"
+	cpy.addEventListener("click", function() {
+		context.copiedPart = {
+			rotation: { ...part.rotation },
+			vector: { ...part.vector }
+		}
+		
+		this.classList.add("clicked")
+		this.textContent = "Copied"
+		this.disabled = true;
+	});
+
+	footer.appendChild(cpy)
+	
+	if (context.copiedPart) {
+		let pst = document.createElement("button")
+		pst.textContent = "Paste Data"
+		pst.addEventListener("click", function() {
+			part.rotation = { ...context.copiedPart.rotation }
+			part.vector = { ...context.copiedPart.vector }
+			part.modified = true
+
+			openPart(part) // TODO: maybe do this smoother
+		});
+		footer.appendChild(pst)
+	}
 }
 
 var lastAngle = 0
@@ -304,7 +352,8 @@ function openCar(car) {
 	}
 	
 	tbody.innerHTML = ""
-	activeCar = car
+	context.clear()
+	context.activeCar = car
 	for (let i in car.parts) {
 		let part = car.parts[i]
 		let tr = document.createElement("tr")

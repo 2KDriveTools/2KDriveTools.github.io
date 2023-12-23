@@ -51,10 +51,18 @@ button.active {
 	font-weight: bold;
 	margin: 3px;
 }
+button.clicked {
+	background-color: #28b176;
+}
+button.clicked:hover {
+	background-color: #1c8658;
+}
 button:hover {
 	background-color: #225683;
 }
-
+button {
+	transition: background 200ms, border 200ms;
+}
 #fdinfo {
     background-color: rgba(255, 0, 0, 0.2);
     border-radius: 4px;

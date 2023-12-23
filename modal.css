@@ -70,6 +70,8 @@
 	justify-content: space-evenly;
 	flex-direction: row;
 	flex-wrap: wrap;
+	margin-top: 8px;
+	margin-bottom: 30px;
 }
 
 .spinner {
@@ -127,4 +129,12 @@
 .modal-download-button > button {
 	margin: auto;
     margin-top: 10px;
+}
+
+.modal-footer {
+    position: absolute;
+    bottom: 8px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
 }
