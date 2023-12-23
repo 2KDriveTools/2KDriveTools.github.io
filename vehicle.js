@@ -1,4 +1,10 @@
-(()=>{
+if (typeof exports === "undefined") {
+	Object.defineProperty(window, "exports", {
+		value: {},
+		enumerable: true
+	})
+}
+((exports)=>{
 document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
@@ -16,6 +22,8 @@ const car_table = z("car-table")
 const tbody = car_table.querySelector('tbody');
 const tabs = z("app-tabs")
 const tools = z("app-tools")
+app.style = "opacity: 0"
+
 const modal = z("app-modal")
 const modalContent = z("modal-part")
 
@@ -185,7 +193,7 @@ function customInput(base, label, step = 0) {
 	return _in
 }
 
-function openPart(part) {
+function openPart(part, fromPaste = false) {
 	modal.style.display = "block";
 	modalContent.innerHTML = ""
 	
@@ -275,14 +283,20 @@ function openPart(part) {
 	
 	if (context.copiedPart) {
 		let pst = document.createElement("button")
-		pst.textContent = "Paste Data"
-		pst.addEventListener("click", function() {
-			part.rotation = { ...context.copiedPart.rotation }
-			part.vector = { ...context.copiedPart.vector }
-			part.modified = true
+		if (fromPaste === true) {
+			pst.textContent = "Pasted"
+			pst.classList.add("clicked")
+			pst.disabled = true;
+		} else {
+			pst.textContent = "Paste Data"
+			pst.addEventListener("click", function() {
+				part.rotation = { ...context.copiedPart.rotation }
+				part.vector = { ...context.copiedPart.vector }
+				part.modified = true
 
-			openPart(part) // TODO: maybe do this smoother
-		});
+				openPart(part, true) // TODO: maybe do this smoother
+			});
+		}
 		footer.appendChild(pst)
 	}
 }
@@ -316,16 +330,29 @@ function openCar(car) {
 	tools.innerHTML = ""
 	for (let a of car.assemblies.list) {
 		let _d = document.createElement("div")
+		_d.classList.add("assembly-info")
+		
 		let _s = document.createElement("span")
-		_s.textContent = "0x" + a.ofs.toString(16) + " | " + a.numParts
+		
+		let a_name = undefined
+		if (a.type)
+			a_name = a.type
+		if (a.name) {
+			if (a_name)
+				a_name += " "
+			a_name += a.name
+		}
+		_s.textContent = a_name || "0x" + a.ofs.toString(16)
+		
+		let _n = document.createElement("code")
+		_n.textContent = a.numParts
 		
 		let elem = document.createElement("button")
 		elem.textContent = "to 1"
 		elem._assembly_size = 1
 		elem.onclick = function() {
 			global.data.setUint16(a.ofs, this._assembly_size, true)
-			a.numParts = this._assembly_size
-			_s.textContent = "0x" + a.ofs.toString(16) + " | " + a.numParts
+			_n.textContent = a.numParts = this._assembly_size
 			updateStyle(car)
 		}
 		_d.addEventListener('mousedown', function(evt) {
@@ -346,6 +373,7 @@ function openCar(car) {
 		})
 		
 		_d.appendChild(_s)
+		_d.appendChild(_n)
 		_d.appendChild(elem)
 		
 		tools.appendChild(_d)
@@ -426,6 +454,10 @@ function downloadSave() {
 	window.URL.revokeObjectURL(url);
 }
 
+function FString(str) {
+	return str == "None" ? undefined : str
+}
+
 function readSave() {
 	let ofs = 0x480;
 	let cap = 50;
@@ -451,26 +483,47 @@ function readSave() {
 				
 				ofs += 51
 
+				let wheel_infos = []
+
 				let ass_ofs = global.data.find("Assemblies\0\x0E\0\0\0ArrayProperty\0", ofs)
 				let ass_size = global.data.getUint32(ass_ofs + 0x1D, true) + 0x1D
 				let ass_list = []
 				let last_ofs = l_ofs = ass_ofs
 				while (l_ofs > 0) {
-					l_ofs = global.data.find("PartOffset\0\x0F\0\0\0UInt16Property\0", l_ofs) 
+					l_ofs = global.data.find("AssemblyType\0\x0D\0\0\0NameProperty\0", l_ofs) 
 					if (l_ofs > (ass_ofs + ass_size))
 						break
 					if (l_ofs <= last_ofs)
 						break
 					
-					l_ofs += 0x27
-					let pofs = global.data.getUint16(l_ofs, true)
-					
-					l_ofs = global.data.find("NumParts\0\x0F\0\0\0UInt16Property\0", l_ofs) 
+					l_ofs += 0x27 
+					let ass_type
+					[ len, ass_type ] = global.data.readString(l_ofs + 4, global.data.getInt32(l_ofs, true));
+					l_ofs += 4 + len
 
-					l_ofs += 0x25
+					l_ofs += 0x2B // AssemblyName\0\x0D\0\0\0NameProperty\0
+
+					let ass_name
+					[ len, ass_name ] = global.data.readString(l_ofs + 4, global.data.getInt32(l_ofs, true));
+					l_ofs += 4 + len
+					
+					l_ofs += 0x2B
+					let pofs = global.data.getUint16(l_ofs, true)
+					l_ofs += 2
+					
+					l_ofs += 0x29
+					// l_ofs = global.data.find("NumParts\0\x0F\0\0\0UInt16Property\0", l_ofs) + 0x25
+					
 					let pval = global.data.getUint16(l_ofs, true)
 					
-					ass_list.push( { "ofs": l_ofs, "numParts": pval, "partOffset": pofs } )
+					ass_list.push( { "ofs": l_ofs, "numParts": pval, "partOffset": pofs, "type": FString(ass_type), "name": FString(ass_name) } )
+					
+					if (ass_type == "Wheel" || ass_type == "WheelExtra") {
+						for (let i = 0; i < pval; i++) {
+							wheel_infos.push(pofs + i)
+						}
+					}
+					
 				}
 
 				let carData = {
@@ -481,6 +534,7 @@ function readSave() {
 						"list": ass_list
 					},
 					"parts": [],
+					"wheels": [],
 					"modified": false
 				}
 
@@ -492,12 +546,19 @@ function readSave() {
 					ofs += 4
 					let partcolor = global.data.getUint32(ofs, true)
 					ofs += 4
-					carData.parts.push({
+					
+					let part = {
 						"id": partid,
 						"color": partcolor,
 						"vector": null,
 						"rotation": null
-					})
+					}
+					
+					carData.parts.push(part)
+					
+					if (wheel_infos.includes(i)) {
+						carData.wheels.push(part)
+					}
 				}
 
 				ofs += 37
@@ -633,6 +694,7 @@ function loadFile(f = null) {
 				if (readSave()) {
 					var md = document.getElementsByClassName('dataform-input')[0];
 					md.style.opacity = "0";
+					app.style.opacity = "1"
 					setTimeout(function() {
 						md.parentNode.removeChild(md);
 					}, 300);
@@ -851,4 +913,17 @@ document.addEventListener('contextmenu', function(e) {
 }, false);
 
 document.body.appendChild(tableStyle)
-})();
+
+var lastY = 0;
+document.addEventListener('scroll', () => {
+	if (lastY == window.scrollY)
+		return
+	lastY = window.scrollY;
+	if (window.scrollY > 53) {
+		tools.classList.add('fixed')
+	} else {
+		tools.classList.remove('fixed')
+	}
+}, { passive: true });
+
+})(exports);

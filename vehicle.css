@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: space-evenly; */
 }
 
 .dataform-input {
@@ -15,6 +16,12 @@
 	left: 0;
 	margin: auto;
 	transition: opacity ease-in-out 300ms;
+}
+#app-tabs .car-tab {
+	width: clamp(120px, 14vw, 200px);
+	text-wrap: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 #fdinfo + .form {
@@ -92,11 +99,12 @@
 .draggable-table {
 	position: absolute;
 	top: 0;
-	left: 12.5%;
-	/* max-width: 75%; */
 	width: 75%;
+	max-width: 850px;
+	left: 50%;
+	transform: translateX(-50%);
 	border-radius: 5px;
-	border: 1px solid whitesmoke;
+	border: 1px solid #767676;
 	border-spacing: inherit;
 }
 
@@ -140,7 +148,7 @@ tbody > tr > td {
 	text-transform: capitalize;
 	padding: 10px;
 	user-select: none;
-	border-top: 1px solid whitesmoke;
+	border-top: 1px solid #767676;
 	vertical-align: middle;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -176,21 +184,27 @@ tbody > tr:after {
 	position: fixed;
 	bottom: 0;
 	right: 0;
+	z-index: 6;
+}
+.download-button > button {
+	font-size: 18px;
+	font-weight: bold;	
 }
 #app-tabs {
 	position: fixed;
-	top: 0px;
+	left: 0;
+	top: 0;
 	transform: translateY(calc(-100% + 10px));
 	padding-top: 5px;
 	background: #2d2c2c;
 	z-index: 1;
-	width: 80%;
+	width: 90%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
-	z-index: 4;
-	padding: 0 10% 5px 10%;
+	justify-content: center;
+	z-index: 5;
+	padding: 0 5% 5px 5%;
 	border-bottom: 2px solid #2872b1;
 	transition: transform 0.2s ease-in-out;
 }
@@ -199,7 +213,7 @@ tbody > tr:after {
 }
 #app-tabs > .indicator {
     position: absolute;
-    top: calc(100% - 1px);
+    top: 100%;
     left: 5px;
     background: #2d2c2c;
     border-radius: 0 0 5px 5px;
@@ -207,8 +221,8 @@ tbody > tr:after {
     border: 2px solid #2872b1;
     border-top: none;
     font-weight: bold;
-	opacity: 1;
-	transition: opacity 0.1s ease-in-out;
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
 }
 #app-tabs:hover > .indicator {
 	opacity: 0;
@@ -216,22 +230,32 @@ tbody > tr:after {
 #app-body {
     position: relative;
     width: 100%;
-    margin-top: 48px;
-    margin-bottom: 15px;
+    margin-bottom: 51px;
 }
 #app-tools {
-	position: fixed;
-	top: 94px;
-	right: 0;
+	position: sticky;
+	margin-top: -12px;
+	top: 14px;
+	left: 100%;
 	padding: 5px;
 	background: #323232;
 	border-radius: 5px 0px 0px 5px;
-	z-index: 5;
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #707070;
+	border-right-width: 0px;
+	transition: border-radius 150ms;
 }
 #app-tools > div {
 	padding-left: 5px;
 	border-radius: 5px;
 	margin: 1px;
+	display: inline-grid;
+	align-items: center;
+	grid-template-columns: 122px 34px 60px;
+	/* grid-template-rows: auto; */
+	/* grid-auto-rows: max-content; */
 }
 #car-table input {
 	padding: 0;
@@ -264,4 +288,51 @@ input[type=number] {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.assembly-info {
+	font-size: 16px;
+}
+.assembly-info > code {
+	background: #00000059;
+	border-radius: 5px;
+	padding: 2px 3px;
+	border-style: inset;
+	border-color: #00000029;
+	margin: 3px;
+	margin-right: 0px;
+	text-align: center;
+	border-width: 1px;
+}
+#app {
+	transition: opacity 150ms ease-in-out;
+	width: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	justify-content: start;
+	padding-top: 25px;
+}
+#app-tools.fixed {
+	position: fixed;
+	right: 0;
+	left: unset;
+	top: 26px;
+	
+}
+@media screen and (min-width: 1350px) {
+	#app-tools, #app-tools.fixed {
+		left: min(85%, calc(430px + 50%));
+		right: unset;
+		border-radius: 5px;
+		border-right-width: 1px;
+		transition: border-radius 250ms;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.download-button {
+		left: min(90%, calc(430px + 50%));
+		right: unset;
+	}
 }
