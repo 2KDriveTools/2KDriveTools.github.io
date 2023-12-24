@@ -729,72 +729,77 @@ fd.addEventListener('drop', handleFileSelect, false);
 fd.addEventListener('click', function() { z('fileinput').click()}, false);
 z('fileinput').addEventListener('change', loadFile, false);		
 
-var currRow = null,
-    dragElem = null,
-    mouseDownX = 0,
-    mouseDownY = 0,         
-    mouseX = 0,
-    mouseY = 0,
-	dragScoll = 0,
-    mouseDrag = false; 
+const mouse = {
+	currRow: null,
+	dragElem: null,
+	down: {x: 0, y: 0},        
+	coords: {x: 0, y: 0},
+	dragScoll: 0,
+	drag: false,
+	bind: function() {
+		const updateRow = () => {
+			// this.dragScoll = window.pageYOffset
+			
+			mouseX = this.coords.x - this.down.x;
+			mouseY = this.coords.y - this.down.y;  
+			
+			moveRow(mouseX, mouseY);
+		}
+			
+		document.addEventListener('scroll', () => {
+			if (dragElem) {
+				this.down.y += this.dragScoll - window.pageYOffset
+				this.dragScoll = window.pageYOffset
+				
+				updateRow()
+			}
+		}, { passive: true })
+		
+		document.addEventListener('mousedown', (event) => {
+			if (event.button != 0) return true;
+			
+			let target = getTargetRow(event.target);
+			if (target) {
+				this.currRow = target;
+				addDraggableRow(target);
+				this.currRow.classList.add('is-dragging');
+			
+			
+				this.coords = getMouseCoords(event);
+				this.down.x = this.coords.x;
+				this.down.y = this.coords.y;      
+			
+				this.drag = true;   
+			}
+		}, { passive: true });
+		
+		document.addEventListener('mousemove', (event) => {
+			if(!this.drag) return;
+			
+			this.coords = getMouseCoords(event)
+			updateRow()
+		}, { passive: true });
+		
+		document.addEventListener('mouseup', (event) => {
+			if(!this.drag) return;
+			
+			this.currRow.classList.remove('is-dragging');
+			car_table.removeChild(dragElem);
+			
+			this.dragElem = null;
+			this.drag = false;
+		}, { passive: true });  
+	}
+}
 
 function init() {
-	bindMouse();
-	window.onscroll = function (e) {  
-		if (dragElem) {
-			mouseDownY = mouseDownY + dragScoll - window.pageYOffset
-			dragScoll = window.pageYOffset
-		}
-	} 
+	mouse.bind();
 }
-
-function bindMouse() {
-  document.addEventListener('mousedown', (event) => {
-    if(event.button != 0) return true;
-    
-    let target = getTargetRow(event.target);
-    if(target) {
-      currRow = target;
-      addDraggableRow(target);
-      currRow.classList.add('is-dragging');
-
-
-      let coords = getMouseCoords(event);
-      mouseDownX = coords.x;
-      mouseDownY = coords.y;      
-
-      mouseDrag = true;   
-    }
-  });
-  
-  document.addEventListener('mousemove', (event) => {
-    if(!mouseDrag) return;
-    
-    let coords = getMouseCoords(event);
-	dragScoll = window.pageYOffset
-	
-    mouseX = coords.x - mouseDownX;
-    mouseY = coords.y - mouseDownY;  
-    
-    moveRow(mouseX, mouseY);
-  });
-  
-  document.addEventListener('mouseup', (event) => {
-    if(!mouseDrag) return;
-    
-    currRow.classList.remove('is-dragging');
-    car_table.removeChild(dragElem);
-    
-    dragElem = null;
-    mouseDrag = false;
-  });    
-}
-
 
 function swapRow(row, index) {
-   let currIndex = Array.from(tbody.children).indexOf(currRow),
-       row1 = currIndex > index ? currRow : row,
-       row2 = currIndex > index ? row : currRow;
+   let currIndex = Array.from(tbody.children).indexOf(mouse.currRow),
+       row1 = currIndex > index ? mouse.currRow : row,
+       row2 = currIndex > index ? row : mouse.currRow;
        
 	// console.log("Swapping ", row1.data_part, " with ", row2.data_part)
 
@@ -817,7 +822,7 @@ function moveRow(x, y) {
         rowSize = rowElem.getBoundingClientRect(),
         rowStartY = rowSize.y, rowEndY = rowStartY + rowSize.height;
 
-    if(currRow !== rowElem && isIntersecting(currStartY, currEndY, rowStartY, rowEndY)) {
+    if(mouse.currRow !== rowElem && isIntersecting(currStartY, currEndY, rowStartY, rowEndY)) {
       if(Math.abs(currStartY - rowStartY) < rowSize.height / 2)
         swapRow(rowElem, i);
     }
@@ -837,7 +842,7 @@ function addDraggableRow(target) {
       newTD.style.padding = getStyle(oldTD, 'padding');
       newTD.style.margin = getStyle(oldTD, 'margin');
     }      
-    
+
     car_table.appendChild(dragElem);
 
   
