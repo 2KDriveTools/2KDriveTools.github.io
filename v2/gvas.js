@@ -228,6 +228,10 @@ class GVASReader {
 		prop.keyType = this.readPropertyString()
 		prop.valueType = this.readPropertyString()
 		prop.optionalGUID = this.readOptionalGUID()
+
+		if (prop.keyType != 'Struct')
+			throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType + " at " + this.#ofs.toString(16))
+
 		
 		delete prop.value
 		prop.values = {}
@@ -236,7 +240,24 @@ class GVASReader {
 		
 		let count = this.readUInt32()
 		
-		throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType)
+		let keyStructType = prop.optionalGUID ? "Struct" : "Guid" // TODO: there's scenarios where this does not apply - somehow
+		
+		for (let i = 0; i < count; i++) {
+			let key = this.#readStructBody(keyStructType)
+			switch (prop.valueType) {
+				case 'Struct':
+					prop.values[key] = this.#readStructBody("Struct");
+					break;
+				case 'Enum':
+				case 'Str':
+					prop.values[key] = this.readString()
+					break;
+				default:
+					throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType + " at " + this.#ofs.toString(16))
+			}
+		}
+		
+		return prop
 	}
 	readArrayProperty(prop, parent) {
 		prop.valueType = this.readPropertyString()
@@ -271,6 +292,19 @@ class GVASReader {
 				for (;count > 0; count--)
 					prop.values.push(this.readString())
 				break;
+			case 'SoftObject':
+				for (;count > 0; count--)
+					prop.values.push({
+						objectName: this.readString(),
+						tag: this.readUInt32()
+					})
+				break;
+			case 'Object':
+				for (;count > 0; count--)
+					prop.values.push({
+						objectName: this.readString()
+					})
+				break;
 			case 'Struct':
 				this.readString() // name
 				this.readString() // StructProperty
@@ -288,6 +322,8 @@ class GVASReader {
 				throw new Error("Unimplemented Array Type " + prop.valueType)
 				break;
 		}
+		
+		return prop
 	}
 	#readStructBody(valueType) {
 		switch (valueType) {
@@ -354,6 +390,8 @@ class GVASReader {
 		prop.optionalGUID = this.readOptionalGUID()
 		
 		prop.value = this.#readStructBody(prop.valueType)
+		
+		return prop
 	}
 };
 
