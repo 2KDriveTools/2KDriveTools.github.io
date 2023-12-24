@@ -811,22 +811,22 @@ function swapRow(row, index) {
 }
   
 function moveRow(x, y) {
-  dragElem.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
-  
-  let	dPos = dragElem.getBoundingClientRect(),
-      currStartY = dPos.y, currEndY = currStartY + dPos.height,
-      rows = getRows();
+	dragElem.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
 
-  for(var i = 0; i < rows.length; i++) {
-    let rowElem = rows[i],
-        rowSize = rowElem.getBoundingClientRect(),
-        rowStartY = rowSize.y, rowEndY = rowStartY + rowSize.height;
-
-    if(mouse.currRow !== rowElem && isIntersecting(currStartY, currEndY, rowStartY, rowEndY)) {
-      if(Math.abs(currStartY - rowStartY) < rowSize.height / 2)
-        swapRow(rowElem, i);
-    }
-  }    
+	let	dPos = dragElem.getBoundingClientRect(),
+		currStartY = dPos.y, currEndY = currStartY + dPos.height,
+		rows = getRows();
+	
+	for(var i = 0; i < rows.length; i++) {
+		let rowElem = rows[i],
+			rowSize = rowElem.getBoundingClientRect(),
+			rowStartY = rowSize.y, rowEndY = rowStartY + rowSize.height;
+		
+		if(mouse.currRow !== rowElem && isIntersecting(currStartY, currEndY, rowStartY, rowEndY)) {
+			if(Math.abs(currStartY - rowStartY) < rowSize.height / 2)
+			swapRow(rowElem, i);
+		}
+	}    
 }
 
 function addDraggableRow(target) {    

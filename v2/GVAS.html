@@ -1,0 +1,25 @@
+<html>
+<title>2K Drive GVAS Parser</title>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+</html>
+<body>
+<div id="app-modal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div id="modal-part"></div>
+	</div>
+</div>
+<div class="app-holder">
+	<div class="dataform-input flex-column" style="display: block;opacity: 0">
+		<form id="fdinfo">
+			<span style="font-size: 10pt;color: #ff3232">Invalid File</span>
+		</form>
+		<form class="form flex-column">
+			<div class="fl-file" style="height: 100%;width: 100%"><div id="filedropper">Drop<code>sav</code>here or click<input style="display:none" type='file' accept=".sav" id='fileinput'><br></div></div>
+		</form>
+	</div>
+</div>
+<script src="gvas.js"></script>
+<script src="parser.js"></script>
+</body>
