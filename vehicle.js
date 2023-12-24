@@ -747,7 +747,7 @@ const mouse = {
 		}
 			
 		document.addEventListener('scroll', () => {
-			if (dragElem) {
+			if (this.dragElem) {
 				this.down.y += this.dragScoll - window.pageYOffset
 				this.dragScoll = window.pageYOffset
 				
@@ -784,7 +784,7 @@ const mouse = {
 			if(!this.drag) return;
 			
 			this.currRow.classList.remove('is-dragging');
-			car_table.removeChild(dragElem);
+			car_table.removeChild(this.dragElem);
 			
 			this.dragElem = null;
 			this.drag = false;
@@ -801,6 +801,7 @@ function swapRow(row, index) {
        row1 = currIndex > index ? mouse.currRow : row,
        row2 = currIndex > index ? row : mouse.currRow;
        
+	console.log("Swapping " + currIndex + " with " + index)
 	// console.log("Swapping ", row1.data_part, " with ", row2.data_part)
 
    tbody.insertBefore(row1, row2);
@@ -811,9 +812,9 @@ function swapRow(row, index) {
 }
   
 function moveRow(x, y) {
-	dragElem.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+	mouse.dragElem.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
 
-	let	dPos = dragElem.getBoundingClientRect(),
+	let	dPos = mouse.dragElem.getBoundingClientRect(),
 		currStartY = dPos.y, currEndY = currStartY + dPos.height,
 		rows = getRows();
 	
@@ -830,34 +831,36 @@ function moveRow(x, y) {
 }
 
 function addDraggableRow(target) {    
-    dragElem = target.cloneNode(true);
-    dragElem.classList.add('draggable-table__drag');
-    dragElem.style.height = getStyle(target, 'height');
-    dragElem.style.background = getStyle(target, 'backgroundColor');     
-    for(var i = 0; i < target.children.length; i++) {
-      let oldTD = target.children[i],
-          newTD = dragElem.children[i];
-      newTD.style.width = getStyle(oldTD, 'width');
-      newTD.style.height = getStyle(oldTD, 'height');
-      newTD.style.padding = getStyle(oldTD, 'padding');
-      newTD.style.margin = getStyle(oldTD, 'margin');
-    }      
-
-    car_table.appendChild(dragElem);
-
-  
-    let tPos = target.getBoundingClientRect(),
-        dPos = dragElem.getBoundingClientRect();
-    dragElem.style.bottom = ((dPos.y - tPos.y) - tPos.height) + "px";
-    dragElem.style.left = "-1px";    
-  
-    document.dispatchEvent(new MouseEvent('mousemove',
-      { view: window, cancelable: true, bubbles: true }
-    ));    
+	let dragElem = target.cloneNode(true);
+	dragElem.classList.add('draggable-table__drag');
+	dragElem.style.height = getStyle(target, 'height');
+	dragElem.style.background = getStyle(target, 'backgroundColor');     
+	for(var i = 0; i < target.children.length; i++) {
+		let oldTD = target.children[i],
+			newTD = dragElem.children[i];
+		newTD.style.width = getStyle(oldTD, 'width');
+		newTD.style.height = getStyle(oldTD, 'height');
+		newTD.style.padding = getStyle(oldTD, 'padding');
+		newTD.style.margin = getStyle(oldTD, 'margin');
+	}      
+	
+	car_table.appendChild(dragElem);
+	
+	
+	let tPos = target.getBoundingClientRect(),
+		dPos = dragElem.getBoundingClientRect();
+	dragElem.style.bottom = ((dPos.y - tPos.y) - tPos.height) + "px";
+	dragElem.style.left = "-1px";    
+	
+	mouse.dragElem = dragElem
+	
+	document.dispatchEvent(new MouseEvent('mousemove',
+		{ view: window, cancelable: true, bubbles: true }
+	));    
 }  
 
 function getRows() {
-  return car_table.querySelectorAll('tbody tr');
+	return car_table.querySelectorAll('tbody tr');
 }    
 
 function getTargetRow(target) {
@@ -868,17 +871,17 @@ function getTargetRow(target) {
 }
 
 function getMouseCoords(event) {
-  return {
-      x: event.clientX,
-      y: event.clientY
-  };    
+	return {
+		x: event.clientX,
+		y: event.clientY
+	};    
 }  
 
 function getStyle(target, styleName) {
-  let compStyle = getComputedStyle(target),
-      style = compStyle[styleName];
-
-  return style ? style : null;
+	let compStyle = getComputedStyle(target),
+		style = compStyle[styleName];
+	
+	return style ? style : null;
 }  
 
 function isIntersecting(min0, max0, min1, max1) {
