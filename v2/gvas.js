@@ -45,6 +45,8 @@ class GVASReader {
 	readBool() {
 		return this.readUChar() != 0
 	}
+	readInt8() { return this.readChar() }
+	readUInt8() { return this.readUChar() }
 	readInt16() {
 		const r = this.view.getInt16(this.#ofs, true)
 		this.#ofs += 2
@@ -440,8 +442,6 @@ class Drive2KSave {
 				break
 		
 			this.root[p.name] = p
-			
-			break;
 		}
 	}
 	
