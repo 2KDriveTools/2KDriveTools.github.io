@@ -436,6 +436,7 @@ function openCar(car) {
 		
 		tr.appendChild(td)
 	}
+	window.scrollTo({top: 0})
 	updateStyle(car)
 }
 
@@ -801,8 +802,7 @@ function swapRow(row, index) {
        row1 = currIndex > index ? mouse.currRow : row,
        row2 = currIndex > index ? row : mouse.currRow;
        
-	console.log("Swapping " + currIndex + " with " + index)
-	// console.log("Swapping ", row1.data_part, " with ", row2.data_part)
+	// console.log("Swapping " + currIndex + " with " + index)
 
    tbody.insertBefore(row1, row2);
 

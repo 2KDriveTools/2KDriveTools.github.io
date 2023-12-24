@@ -236,7 +236,7 @@ class GVASReader {
 		
 		let count = this.readUInt32()
 		
-		
+		throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType)
 	}
 	readArrayProperty(prop, parent) {
 		prop.valueType = this.readPropertyString()
