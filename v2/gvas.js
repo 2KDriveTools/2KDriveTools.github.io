@@ -125,6 +125,17 @@ class GVASReader {
 	readOptionalGUID() {
 		return this.readBool() ? this.readGUID() : null;
 	}
+	readPropertyCatching(parent = null, key = null) {
+		try {
+			return this.readProperty(parent, key)
+		} catch (ex) {
+			if (ex.caught === undefined) {
+				ex.message += " at 0x" + this.#ofs.toString(16)
+				ex.caught = true;
+			}
+			throw ex
+		}
+	}
 	readProperty(parent = null, key = null) {
 		let prop = {
 			name: this.readString()
@@ -146,6 +157,9 @@ class GVASReader {
 				break;
 			case 'Array':
 				this.readArrayProperty(prop, parent)
+				break;
+			case 'Set':
+				this.readSetProperty(prop, parent)
 				break;
 			case 'Map':
 				this.readMapProperty(prop, parent)
@@ -226,36 +240,81 @@ class GVASReader {
 		
 		return prop
 	}
-	readMapProperty(prop, parent) {
+	readSetProperty(prop, parent) { // Possibly wrong
+		prop.valueType = this.readPropertyString()
+		prop.optionalGUID = this.readOptionalGUID()
+		
+		delete prop.value
+		prop.values = new Set()
+
+		prop.flags = this.readUInt32()
+		let count = this.readUInt32()
+
+		let structType = prop.optionalGUID ? "Struct" : "Guid" 
+
+		switch (prop.valueType) {
+			case 'Struct':
+				for (; count > 0; count--) {
+					prop.values.add(this.#readStructBody(structType));
+				}
+				break;
+			case 'Enum':
+			case 'Name':
+			case 'Str':
+				for (; count > 0; count--)
+					prop.values.add(this.readString());
+				break;
+			default:
+				throw new Error("Unimplemented Set ValueType " + prop.valueType + " at " + this.#ofs.toString(16))
+		}
+
+		return prop
+	}
+	readMapProperty(prop, parent) { // TODO: Improve this
 		prop.keyType = this.readPropertyString()
 		prop.valueType = this.readPropertyString()
 		prop.optionalGUID = this.readOptionalGUID()
 
-		if (prop.keyType != 'Struct')
-			throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType + " at " + this.#ofs.toString(16))
+		//if (prop.keyType != 'Struct')
+		//	throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType + " at " + this.#ofs.toString(16))
 
-		
 		delete prop.value
-		prop.values = {}
+		prop.values = new Map()
 		
 		prop.flags = this.readUInt32()
 		
 		let count = this.readUInt32()
-		
+
 		let keyStructType = prop.optionalGUID ? "Struct" : "Guid" // TODO: there's scenarios where this does not apply - somehow
-		
+
+		if (prop.name == "CompletedActivitiesStory")
+			keyStructType = "Struct"
+
 		for (let i = 0; i < count; i++) {
-			let key = this.#readStructBody(keyStructType)
-			switch (prop.valueType) {
+			let key;
+			switch (prop.keyType) {
 				case 'Struct':
-					prop.values[key] = this.#readStructBody("Struct");
+					key = this.#readStructBody(keyStructType);
 					break;
-				case 'Enum':
+				case 'Name':
 				case 'Str':
-					prop.values[key] = this.readString()
+					key = this.readString();
 					break;
 				default:
-					throw new Error("Unimplemented Map Type " + prop.keyType + " : " + prop.valueType + " at " + this.#ofs.toString(16))
+					throw new Error("Unimplemented Map KeyType " + prop.keyType + " at " + this.#ofs.toString(16))
+			}
+			
+			switch (prop.valueType) {
+				case 'Struct':
+					prop.values.set(key, this.#readStructBody("Struct"));
+					break;
+				case 'Enum':
+				case 'Name':
+				case 'Str':
+					prop.values.set(key, this.readString());
+					break;
+				default:
+					throw new Error("Unimplemented Map ValueType " + prop.valueType + " at " + this.#ofs.toString(16))
 			}
 		}
 		
@@ -444,6 +503,4 @@ class Drive2KSave {
 			this.root[p.name] = p
 		}
 	}
-	
-	
 }
