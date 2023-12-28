@@ -253,9 +253,10 @@ tbody > tr:after {
 	margin: 1px;
 	display: inline-grid;
 	align-items: center;
-	grid-template-columns: 122px 34px 60px;
+	grid-template-columns: 122px 33px 61px;
 	/* grid-template-rows: auto; */
 	/* grid-auto-rows: max-content; */
+	text-wrap: nowrap;
 }
 #car-table input {
 	padding: 0;

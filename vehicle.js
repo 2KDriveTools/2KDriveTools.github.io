@@ -359,8 +359,11 @@ function openCar(car) {
 			if (evt.target.nodeName == 'BUTTON')
 				return
 			let elem = this.querySelector('button')
-			elem._assembly_size += 1
-			elem._assembly_size -= evt.button
+			if (evt.button == 0) { // left
+				elem._assembly_size += evt.shiftKey ? 10 : 1;
+			} else if (evt.button == 2) { // right
+				elem._assembly_size -= evt.shiftKey ? 10 : 1;
+			}
 			if (elem._assembly_size < 1)
 				elem._assembly_size = 1
 			elem.textContent = "to " + elem._assembly_size
