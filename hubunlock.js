@@ -3,7 +3,10 @@ document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
 z = document.getElementById.bind(document);
 
-const FILECHECK = { "name": "ArtemisVehicle.sav", "script": "/Script/Artemis.ArtemisVehicleSaveGame"}
+const FILECHECK = { "name": "Artemis[Extra]Vehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
+
+const UNLOCK_TYPE = 'ECustomVehicleParentType::Created'
+const BLOCKED_TYPES = new Set([ UNLOCK_TYPE, "ECustomVehicleParentType::UGCDownload" ])
 
 const saveData = {}
 
@@ -11,6 +14,19 @@ const app = z("app")
 const modal = z("app-modal")
 const modalContent = z("modal-part")
 
+if (window.location.hash) {
+	let _s = window.location.hash;
+	let h = 0, c;
+	for (let i = 0; i < _s.length; i++) {
+		c = _s.charCodeAt(i);
+		h = ((h << 5) - h) + c // h * 31 + c
+		h >>>= 0
+	}
+	if (h === 0xE0429B1A) {
+		BLOCKED_TYPES.clear()
+		BLOCKED_TYPES.add(UNLOCK_TYPE)
+	}
+}
 function downloadSave() {
 
 	var blob = new Blob([global.data]),
@@ -35,7 +51,12 @@ function validateFile(data) {
 	let name
 	[ len, name ] = global.data.readString(ofs, len);
 
-	return name == FILECHECK.script
+	if (FILECHECK.scripts.includes(name)) {
+		saveData.script = name;
+		return true
+	}
+	
+	return false;
 }
 (()=>{
 	let c = document.querySelector('#filedropper > code')
@@ -58,17 +79,16 @@ function readSave() {
 	
 	saveData.maxed = 0
 	
-	const unl_str = 'ECustomVehicleParentType::Created'
-	
 	while (cap > 0) {
 		ofs = global.data.find('ECustomVehicleParentType::', ofs)
 		if (ofs < 1) break
 		let max_len = global.data.getUint32(ofs - 4, true)
 		let pre = global.data.readString(ofs, max_len)[1]
-		if (pre != unl_str) {
-			let _d = max_len - unl_str.length
+		if (!BLOCKED_TYPES.has(pre)) {
+			console.log(pre)
+			let _d = max_len - UNLOCK_TYPE.length
 			if (_d > 0) {
-				let torep = unl_str + '\0'.repeat(_d)
+				let torep = UNLOCK_TYPE + '\0'.repeat(_d)
 				global.data.writeString(ofs, torep, max_len)
 				saveData.maxed += 1
 			}

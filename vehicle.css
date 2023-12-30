@@ -41,7 +41,10 @@
 	opacity: 1;
 	top: calc(70% + 50px);
 }
-
+#filedropper {
+    display: flex;
+    flex-direction: column;	
+}
 .dataform-input .form {
 	min-height: 40%;
     width: 550px;

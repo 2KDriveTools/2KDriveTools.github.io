@@ -13,7 +13,7 @@ const SETTINGS = {
 	SHOW_SCALE: false,
 }
 
-const FILECHECK = { "name": "ArtemisVehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
+const FILECHECK = { "name": "Artemis[Extra]Vehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
 
 const saveData = {}
 

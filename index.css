@@ -6,7 +6,7 @@
 	top: 0;
 	right: 0;
 	left: 0;
-	background: #00000069;
+	background: #2d2c2c;
 	align-items: center;
 	vertical-align: sub;
 	display: flex;
@@ -14,6 +14,7 @@
 	justify-content: center;
 	font-weight: bold;
 	font-size: 26px;
+	border-bottom: 2px solid #2872b1;
 }
 
 .tool-list {
@@ -22,7 +23,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background: #5d5d5d;
+	background: #2d2c2c;
 	border-radius: 5px;
 	padding: 15px;
 }
@@ -31,6 +32,7 @@
 	flex-direction: column;
 	align-items: center;
 	font-size: 17px;
+	border: 1px solid #707070;
 }
 .tool-list > span {
 	font-weight: bold;
