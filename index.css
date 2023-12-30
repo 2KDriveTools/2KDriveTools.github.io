@@ -1,0 +1,66 @@
+.head {
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: #00000069;
+	align-items: center;
+	vertical-align: sub;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.tool-list {
+	position: absolute;
+	width: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #2c2c2c;
+	border-radius: 5px;
+	padding: 15px;
+}
+.tool-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 17px;
+}
+.tool-list > span {
+	font-weight: bold;
+	font-size: 22px;
+}
+.tool-list a {
+	color: white;
+	text-decoration: none;
+}
+.tool-list ul {
+	padding: 5px;
+	margin: 0;
+}
+.tool-list ul > li {
+	padding: 3px;
+}
+
+.tool-list li > span {
+	font-size: 14px;
+	color: gray;
+}
+
+.tool-list li > span:before {
+	content: "\a        ";
+	white-space: pre;
+}
+
+.tool-list li > span.outdated:after {
+	content: "(outdated)";
+	color: #bb0e0e;
+	font-size: 10px;
+	margin-left: 5px;
+}
