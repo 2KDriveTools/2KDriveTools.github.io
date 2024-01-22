@@ -40,6 +40,22 @@ const context = {
 	}
 }
 
+exports.getPartlist = function () {
+	if (context.activeCar) {
+		let parts = new Map();
+		for (let p of context.activeCar.parts) {
+			let pid = p.id + ";" + p.color;
+			let n = parts.get(pid) || 0;
+			parts.set(pid, n + 1)
+		}
+		for (let [k,v] of parts) {
+			let id, color;
+			[ id, color ] = k.split(';').map(x => Number(x))
+			console.log(id, color, v)
+		}
+	}
+}
+
 const angle_diff = 47
 const initial_angle = 56
 

@@ -1,3 +1,4 @@
+"use strict";
 if (typeof exports === "undefined") {
 	Object.defineProperty(window, "exports", {
 		value: {},
@@ -7,7 +8,7 @@ if (typeof exports === "undefined") {
 ((exports)=>{
 document.getElementsByClassName('dataform-input')[0].style.opacity = "1";
 const global = {};
-z = document.getElementById.bind(document);
+const z = document.getElementById.bind(document);
 
 const SETTINGS = {
 	SHOW_SCALE: false,

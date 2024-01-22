@@ -19,8 +19,11 @@ body {
     background: #cccccc;
     border-radius: 5px;
     overflow: hidden;
-	color: black;
-	margin: 5px;
+    color: black;
+    margin: 5px;
+}
+.gradient-holder {
+	background: linear-gradient(135deg, #EEE, #777);	
 }
 .part-holder > span {
 	padding: 5px;

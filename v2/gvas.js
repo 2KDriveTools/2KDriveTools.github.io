@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 const PropertyTypes = {
 	optionalTypes: new Set([
 		'SoftObject',
@@ -12,6 +12,38 @@ const PropertyTypes = {
 	hasOptionalGuid: function(type) {
 		return this.optionalTypes.has(type)
 	}
+}
+class GVASWriter {
+	#ofs = 0;
+	#enc;
+	#utfenc;
+	#view;
+	
+	constructor() {
+		this.#ofs = 0
+		this.#enc = new TextEncoder("ISO-8859-2");
+		this.#utfenc = new TextEncoder("UTF-16");
+	}
+	
+	writeBytes(bytes) {
+		
+	}
+	writeChar(c) {
+		
+	}
+	writeUChar(c) {
+		
+	}
+	writeBool(b) {
+		this.writeUChar(b ? 1 : 0)
+	}
+	writeInt8(i) {
+		this.writeChar(i)
+	}
+	writeUInt8(u) {
+		this.writeUChar(u)
+	}
+	
 }
 class GVASReader {
 	#ofs = 0;
@@ -390,14 +422,17 @@ class GVASReader {
 		switch (valueType) {
 			case 'Guid':
 				return {
+					type: valueType,
 					guid: this.readGUID()
 				}
 			case 'DateTime':
 				return {
+					type: valueType,
 					ticks: this.readUInt64()
 				}
 			case 'LinearColor':
 				return {
+					type: valueType,
 					r: this.readFloat(),
 					g: this.readFloat(),
 					b: this.readFloat(),
@@ -405,6 +440,7 @@ class GVASReader {
 				}
 			case 'Quat':
 				return {
+					type: valueType,
 					x: this.readFloat(),
 					y: this.readFloat(),
 					z: this.readFloat(),
@@ -412,12 +448,14 @@ class GVASReader {
 				}
 			case 'Rotator':
 				return {
+					type: valueType,
 					yaw: this.readFloat(),
 					pitch: this.readFloat(),
 					roll: this.readFloat()
 				}
 			case 'Vector':
 				return {
+					type: valueType,
 					x: this.readFloat(),
 					y: this.readFloat(),
 					z: this.readFloat()
@@ -425,16 +463,18 @@ class GVASReader {
 			case 'Vector2D':
 			case 'IntPoint':
 				return {
+					type: valueType,
 					x: this.readFloat(),
 					y: this.readFloat()
 				}
 			case 'LegoGraphPartInstance':
 				return {
+					type: valueType,
 					part: this.readUInt32(),
 					color: this.readUInt32()
 				}
 			default:
-				let value = { }
+				let value = { type: valueType }
 				while (true) {
 					let p = this.readProperty(valueType);
 					if (!p)
