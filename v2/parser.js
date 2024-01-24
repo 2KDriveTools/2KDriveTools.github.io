@@ -72,7 +72,7 @@ function loadFile(f = null) {
 		dr.readAsArrayBuffer(f);
 		
 		dr.onload = function(f) { 
-			global.save = new Drive2KSave(f.target.result)
+			global.save = new GVASSave(f.target.result)
 			console.log(global.save)
 		}
 	}

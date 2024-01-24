@@ -15,10 +15,9 @@ function selectPath() {
         textRange.select();
     }
 }
-for (let sticker of StickerData) {
+for (let part of LEGO_SETS) {
 	let cont = document.createElement('div')
 	cont.classList.add("part-holder")
-	cont.classList.add("gradient-holder")
 	
 	let span = document.createElement('span')
 	let num = document.createElement('span')
@@ -26,13 +25,17 @@ for (let sticker of StickerData) {
 	let code = document.createElement('code')
 	
 	img.loading = "lazy"
-	img.src = './resources/Stickers/' + sticker.texture
+	if (part.img) {
+		img.src = part.img
+	} else {
+		img.src = '../../resources/Stickers/Unknown.png'
+	}
 	
-	span.innerText = sticker.name
-	num.innerText = sticker.path.length
+	span.innerText = part.name
+	num.innerText = part.code.length
 	num.classList.add("len-span")
 	
-	code.innerText = sticker.path
+	code.innerText = part.code
 	code.onclick = selectPath
 	
 	cont.appendChild(span)

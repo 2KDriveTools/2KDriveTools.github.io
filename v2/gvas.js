@@ -18,31 +18,54 @@ class GVASWriter {
 	#enc;
 	#utfenc;
 	#view;
+	bufLen;
+	propLen;
 	
 	constructor() {
 		this.#ofs = 0
 		this.#enc = new TextEncoder("ISO-8859-2");
 		this.#utfenc = new TextEncoder("UTF-16");
+		
+		this.bufLen = 0;
+		this.propLen = 0;
 	}
 	
 	writeBytes(bytes) {
 		
 	}
-	writeChar(c) {
+	writeChar(c, count = false) {
+		let arrayBuffer     = new Uint8Array(1);
+			arrayBuffer[0]  = (value & 0xff);
 		
-	}
-	writeUChar(c) {
+		if (count === true) {
+			this.bufLen++;
+		}
+		this.propLen++;
 		
+		return String.fromCharCode.apply(null, arrayBuffer);
 	}
-	writeBool(b) {
-		this.writeUChar(b ? 1 : 0)
+	writeUChar(c, count = false) {
+		return writeChar(c, count)
 	}
-	writeInt8(i) {
-		this.writeChar(i)
+	writeBool(b, count = false) { return this.writeUChar(b ? 1 : 0, count) }
+	writeInt8(i, count = false) { return writeChar(i, count) }
+	writeUInt8(u, count = false) { return this.writeUChar(u) }
+	
+	writeInt32() {
+        let arrayBuffer     = new Uint8Array(4);
+            arrayBuffer[3]  = (value >>> 24);
+            arrayBuffer[2]  = (value >>> 16);
+            arrayBuffer[1]  = (value >>> 8);
+            arrayBuffer[0]  = (value & 0xff);
+
+        if (count === true) {
+            this.bufLen += 4;
+        }
+        this.propLen += 4;
+
+        return String.fromCharCode.apply(null, arrayBuffer);
 	}
-	writeUInt8(u) {
-		this.writeUChar(u)
-	}
+	
 	
 }
 class GVASReader {
@@ -178,6 +201,9 @@ class GVASReader {
 
 		prop.type = this.readPropertyString()
 		prop.size = this.readUInt64()
+		
+		prop.offset = this.#ofs
+		
 		prop.value = {}
 		
 		if (PropertyTypes.hasOptionalGuid(prop.type)) 
@@ -496,9 +522,9 @@ class GVASReader {
 	}
 };
 
-class Drive2KSave {
+class GVASSave {
 	constructor(data) {
-		let reader = new GVASReader(data)
+		let reader = (data instanceof GVASReader) ? data : new GVASReader(data);
 	
 		if (reader.readBytes(4) != 'GVAS')
 			throw new Error("Invalid File Magic")
