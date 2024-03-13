@@ -55,6 +55,20 @@ const BrickData = {
       "Z": 3
     }
   },
+  "1751": {
+    "id": 1751,
+    "name": "TILE 4X4",
+    "img": "Unknown",
+    "aliases": [
+      1751
+    ],
+    "mass": 53.40576,
+    "size": {
+      "X": 4,
+      "Y": 4,
+      "Z": 1
+    }
+  },
   "1756": {
     "id": 1756,
     "name": "HORN W/ 3.2 SHAFT, NO. 1",
@@ -109,6 +123,20 @@ const BrickData = {
       "X": 2,
       "Y": 0,
       "Z": 6
+    }
+  },
+  "1937": {
+    "id": 1937,
+    "name": "LOWER SWASH PLATE, NO. 1",
+    "img": "T_1937_Icon",
+    "aliases": [
+      1937
+    ],
+    "mass": 91.552734,
+    "size": {
+      "X": 5,
+      "Y": 5,
+      "Z": 5
     }
   },
   "2310": {
@@ -669,6 +697,23 @@ const BrickData = {
       "X": 12,
       "Y": 2,
       "Z": 1
+    }
+  },
+  "2447": {
+    "id": 2447,
+    "name": "MINI VISOR 2",
+    "img": "Unknown",
+    "aliases": [
+      2447,
+      59456,
+      70651,
+      88407
+    ],
+    "mass": 4.8828125,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 2
     }
   },
   "2449": {
@@ -4254,6 +4299,20 @@ const BrickData = {
       "Z": 1
     }
   },
+  "3833": {
+    "id": 3833,
+    "name": "MINI CONTRACTOR'S HELMET",
+    "img": "Unknown",
+    "aliases": [
+      3833
+    ],
+    "mass": 9.155273,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 2
+    }
+  },
   "3835": {
     "id": 3835,
     "name": "MINI FIREMAN'S AXE",
@@ -4422,6 +4481,21 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 6
+    }
+  },
+  "3878": {
+    "id": 3878,
+    "name": "TOP HAT - MINI FIGURE",
+    "img": "T_3878_Icon",
+    "aliases": [
+      3878,
+      88412
+    ],
+    "mass": 17.39502,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 2
     }
   },
   "3894": {
@@ -8395,6 +8469,20 @@ const BrickData = {
       "Z": 8
     }
   },
+  "6630": {
+    "id": 6630,
+    "name": "TECHNIC TOOTHED BAR 8M",
+    "img": "T_6630_Icon",
+    "aliases": [
+      6630
+    ],
+    "mass": 61.035156,
+    "size": {
+      "X": 8,
+      "Y": 1,
+      "Z": 1
+    }
+  },
   "6632": {
     "id": 6632,
     "name": "TECHNIC LEVER 3M",
@@ -8560,11 +8648,11 @@ const BrickData = {
   "10190": {
     "id": 10190,
     "name": "FROGMAN'S FOOT",
-    "img": "Unknown",
+    "img": "T_10190_Icon",
     "aliases": [
       10190
     ],
-    "mass": 1.0,
+    "mass": 4.2685733,
     "size": {
       "X": 2,
       "Y": 1,
@@ -9480,6 +9568,20 @@ const BrickData = {
       "Z": 3
     }
   },
+  "13562": {
+    "id": 13562,
+    "name": "GUN NO2 WITH Ø3,2 SHAFT",
+    "img": "Unknown",
+    "aliases": [
+      13562
+    ],
+    "mass": 3.6621094,
+    "size": {
+      "X": 1,
+      "Y": 0,
+      "Z": 4
+    }
+  },
   "13564": {
     "id": 13564,
     "name": "HORN 2,5M Ø3,2 WITH SHAFT",
@@ -10080,6 +10182,21 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 7
+    }
+  },
+  "15303": {
+    "id": 15303,
+    "name": "ARROW 8M FOR SPRING SHOOTER",
+    "img": "T_15303_Icon",
+    "aliases": [
+      15303,
+      29340
+    ],
+    "mass": 19.836426,
+    "size": {
+      "X": 8,
+      "Y": 1,
+      "Z": 1
     }
   },
   "15332": {
@@ -10734,7 +10851,7 @@ const BrickData = {
     "aliases": [
       17979
     ],
-    "mass": 153.7272,
+    "mass": 1.0,
     "size": {
       "X": 6,
       "Y": 1,
@@ -10809,6 +10926,20 @@ const BrickData = {
       "X": 4,
       "Y": 1,
       "Z": 29
+    }
+  },
+  "18455": {
+    "id": 18455,
+    "name": "BRICK 2x4x1 2/3 W/Ve STUB",
+    "img": "T_18455_Icon",
+    "aliases": [
+      18455
+    ],
+    "mass": 91.552734,
+    "size": {
+      "X": 4,
+      "Y": 2,
+      "Z": 6
     }
   },
   "18575": {
@@ -11195,6 +11326,21 @@ const BrickData = {
       "X": 13,
       "Y": 3,
       "Z": 4
+    }
+  },
+  "18948": {
+    "id": 18948,
+    "name": "GEAR SHIFTER CONNECTOR 3M",
+    "img": "Unknown",
+    "aliases": [
+      49136,
+      18948
+    ],
+    "mass": 23.80371,
+    "size": {
+      "X": 1,
+      "Y": 3,
+      "Z": 2
     }
   },
   "18950": {
@@ -11635,7 +11781,7 @@ const BrickData = {
       20926,
       20460
     ],
-    "mass": 16.570566,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -11650,7 +11796,7 @@ const BrickData = {
       20932,
       20461
     ],
-    "mass": 16.654612,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -11776,6 +11922,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "22390": {
+    "id": 22390,
+    "name": "ROOF TILE 8X6 45DEG W/CUT",
+    "img": "T_22390_Icon",
+    "aliases": [
+      22390
+    ],
+    "mass": 131.53076,
+    "size": {
+      "X": 8,
+      "Y": 6,
+      "Z": 3
+    }
+  },
   "22391": {
     "id": 22391,
     "name": "ROOF TILE 4X4 45DEG",
@@ -11802,6 +11962,20 @@ const BrickData = {
       "X": 1,
       "Y": 1,
       "Z": 3
+    }
+  },
+  "22410": {
+    "id": 22410,
+    "name": "SPACE WHEEL Ø37/22 W/4.85 HOLE",
+    "img": "Unknown",
+    "aliases": [
+      22410
+    ],
+    "mass": 195.3125,
+    "size": {
+      "X": 5,
+      "Y": 3,
+      "Z": 11
     }
   },
   "22483": {
@@ -12547,7 +12721,7 @@ const BrickData = {
     "aliases": [
       25866
     ],
-    "mass": 3.290956,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -12622,6 +12796,20 @@ const BrickData = {
       "X": 1,
       "Y": 2,
       "Z": 1
+    }
+  },
+  "26169": {
+    "id": 26169,
+    "name": "WALL ELEMENT 1X2X1",
+    "img": "T_26169_Icon",
+    "aliases": [
+      26169
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 3
     }
   },
   "26170": {
@@ -13283,7 +13471,7 @@ const BrickData = {
     "aliases": [
       29685
     ],
-    "mass": 31.673222,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 2,
@@ -13737,6 +13925,20 @@ const BrickData = {
       "Z": 4
     }
   },
+  "30133": {
+    "id": 30133,
+    "name": "SCARF",
+    "img": "Unknown",
+    "aliases": [
+      30133
+    ],
+    "mass": 6.1035156,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 3
+    }
+  },
   "30134": {
     "id": 30134,
     "name": "STAIRCASE 7X4X6",
@@ -14146,6 +14348,21 @@ const BrickData = {
       "Z": 3
     }
   },
+  "30191": {
+    "id": 30191,
+    "name": "STRAP 12 M",
+    "img": "T_30191_Icon",
+    "aliases": [
+      30191,
+      18390
+    ],
+    "mass": 36.315918,
+    "size": {
+      "X": 12,
+      "Y": 2,
+      "Z": 1
+    }
+  },
   "30193": {
     "id": 30193,
     "name": "ICE AXE",
@@ -14416,6 +14633,20 @@ const BrickData = {
       "Z": 5
     }
   },
+  "30275": {
+    "id": 30275,
+    "name": "CATAPULT ARM",
+    "img": "T_30275_Icon",
+    "aliases": [
+      30275
+    ],
+    "mass": 159.60693,
+    "size": {
+      "X": 12,
+      "Y": 3,
+      "Z": 6
+    }
+  },
   "30293": {
     "id": 30293,
     "name": "ROCK 4X4X1 1/3 UPPER PART",
@@ -14633,6 +14864,20 @@ const BrickData = {
       "X": 5,
       "Y": 2,
       "Z": 8
+    }
+  },
+  "30359": {
+    "id": 30359,
+    "name": "BRICK W. SHAFT 1X8X1",
+    "img": "T_30359_Icon",
+    "aliases": [
+      30359
+    ],
+    "mass": 40.893555,
+    "size": {
+      "X": 8,
+      "Y": 1,
+      "Z": 3
     }
   },
   "30360": {
@@ -14884,6 +15129,20 @@ const BrickData = {
     "size": {
       "X": 8,
       "Y": 1,
+      "Z": 3
+    }
+  },
+  "30389": {
+    "id": 30389,
+    "name": "BRICK 2X2 W/STUB VERTICAL",
+    "img": "T_30389_Icon",
+    "aliases": [
+      30389
+    ],
+    "mass": 46.691895,
+    "size": {
+      "X": 3,
+      "Y": 2,
       "Z": 3
     }
   },
@@ -16380,6 +16639,21 @@ const BrickData = {
       "Z": 2
     }
   },
+  "32525": {
+    "id": 32525,
+    "name": "TECHNIC 11M BEAM",
+    "img": "Unknown",
+    "aliases": [
+      32525,
+      64290
+    ],
+    "mass": 85.44922,
+    "size": {
+      "X": 11,
+      "Y": 1,
+      "Z": 2
+    }
+  },
   "32526": {
     "id": 32526,
     "name": "TECHNIC ANG. BEAM 3X5 90 DEG.",
@@ -16536,6 +16810,20 @@ const BrickData = {
       "X": 2,
       "Y": 2,
       "Z": 2
+    }
+  },
+  "32807": {
+    "id": 32807,
+    "name": "BRICK 1X1X1 1/3, W/ ARCH",
+    "img": "Unknown",
+    "aliases": [
+      32807
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 1,
+      "Y": 2,
+      "Z": 4
     }
   },
   "32828": {
@@ -17017,7 +17305,7 @@ const BrickData = {
     "aliases": [
       35164
     ],
-    "mass": 64.18163,
+    "mass": 1.0,
     "size": {
       "X": 6,
       "Y": 1,
@@ -17031,7 +17319,7 @@ const BrickData = {
     "aliases": [
       35173
     ],
-    "mass": 273.0191,
+    "mass": 1.0,
     "size": {
       "X": 7,
       "Y": 6,
@@ -17101,7 +17389,7 @@ const BrickData = {
     "aliases": [
       35267
     ],
-    "mass": 212.60622,
+    "mass": 1.0,
     "size": {
       "X": 6,
       "Y": 2,
@@ -17171,7 +17459,7 @@ const BrickData = {
     "aliases": [
       35280
     ],
-    "mass": 259.8649,
+    "mass": 1.0,
     "size": {
       "X": 4,
       "Y": 2,
@@ -17234,6 +17522,20 @@ const BrickData = {
       "Z": 4
     }
   },
+  "35318": {
+    "id": 35318,
+    "name": "GLASS FOR FRAME 1X4X3",
+    "img": "Unknown",
+    "aliases": [
+      35318
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 4,
+      "Y": 0,
+      "Z": 7
+    }
+  },
   "35334": {
     "id": 35334,
     "name": "MINI VISOR 2",
@@ -17241,7 +17543,7 @@ const BrickData = {
     "aliases": [
       35334
     ],
-    "mass": 12.913965,
+    "mass": 1.0,
     "size": {
       "X": 2,
       "Y": 1,
@@ -17353,7 +17655,7 @@ const BrickData = {
     "aliases": [
       35403
     ],
-    "mass": 4.8547735,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -17574,6 +17876,20 @@ const BrickData = {
       "Z": 3
     }
   },
+  "37495": {
+    "id": 37495,
+    "name": "WEAPON, W/ CROSS HOLE, NO. FRICTION",
+    "img": "Unknown",
+    "aliases": [
+      37495
+    ],
+    "mass": 177.00195,
+    "size": {
+      "X": 9,
+      "Y": 1,
+      "Z": 22
+    }
+  },
   "37762": {
     "id": 37762,
     "name": "CANDLE, NO. 1",
@@ -17656,6 +17972,20 @@ const BrickData = {
       "X": 2,
       "Y": 0,
       "Z": 5
+    }
+  },
+  "38648": {
+    "id": 38648,
+    "name": "MAGNIFYING GLASS",
+    "img": "T_38648_Icon",
+    "aliases": [
+      38648
+    ],
+    "mass": 17.269964,
+    "size": {
+      "X": 2,
+      "Y": 0,
+      "Z": 7
     }
   },
   "39262": {
@@ -17812,6 +18142,35 @@ const BrickData = {
       "X": 5,
       "Y": 1,
       "Z": 2
+    }
+  },
+  "41239": {
+    "id": 41239,
+    "name": "TECHNIC 13M BEAM",
+    "img": "T_41239_Icon",
+    "aliases": [
+      32277,
+      41239
+    ],
+    "mass": 100.70801,
+    "size": {
+      "X": 13,
+      "Y": 1,
+      "Z": 2
+    }
+  },
+  "41530": {
+    "id": 41530,
+    "name": "SAW BLADE Ø36.744",
+    "img": "T_41530_Icon",
+    "aliases": [
+      41530
+    ],
+    "mass": 76.293945,
+    "size": {
+      "X": 5,
+      "Y": 1,
+      "Z": 11
     }
   },
   "41531": {
@@ -18425,6 +18784,21 @@ const BrickData = {
       "X": 18,
       "Y": 4,
       "Z": 4
+    }
+  },
+  "42918": {
+    "id": 42918,
+    "name": "BRICK 2X8,OUTSIDE BOW,W/ CUT OUT,NO. 1",
+    "img": "T_42918_Icon",
+    "aliases": [
+      100418,
+      42918
+    ],
+    "mass": 91.552734,
+    "size": {
+      "X": 8,
+      "Y": 2,
+      "Z": 3
     }
   },
   "43085": {
@@ -19202,7 +19576,7 @@ const BrickData = {
     "aliases": [
       46538
     ],
-    "mass": 32.46151,
+    "mass": 1.0,
     "size": {
       "X": 2,
       "Y": 2,
@@ -19352,6 +19726,20 @@ const BrickData = {
       "X": 2,
       "Y": 1,
       "Z": 3
+    }
+  },
+  "47507": {
+    "id": 47507,
+    "name": "BRICK 6X6X2 W. Ø4,85",
+    "img": "T_47507_Icon",
+    "aliases": [
+      47507
+    ],
+    "mass": 247.19238,
+    "size": {
+      "X": 6,
+      "Y": 6,
+      "Z": 6
     }
   },
   "47508": {
@@ -19831,6 +20219,20 @@ const BrickData = {
       "X": 4,
       "Y": 1,
       "Z": 9
+    }
+  },
+  "49546": {
+    "id": 49546,
+    "name": "PLATE 1X2 W/ SHAFT 12M",
+    "img": "Unknown",
+    "aliases": [
+      49546
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 12,
+      "Y": 1,
+      "Z": 1
     }
   },
   "49668": {
@@ -21463,7 +21865,7 @@ const BrickData = {
     "aliases": [
       59895
     ],
-    "mass": 12.207031,
+    "mass": 12.817383,
     "size": {
       "X": 2,
       "Y": 1,
@@ -22123,6 +22525,20 @@ const BrickData = {
       "X": 4,
       "Y": 0,
       "Z": 16
+    }
+  },
+  "60806": {
+    "id": 60806,
+    "name": "FRAME/SLANTING 3X4X3",
+    "img": "Unknown",
+    "aliases": [
+      60806
+    ],
+    "mass": 70.19043,
+    "size": {
+      "X": 4,
+      "Y": 4,
+      "Z": 9
     }
   },
   "60849": {
@@ -23025,7 +23441,7 @@ const BrickData = {
     "aliases": [
       64561
     ],
-    "mass": 108.865585,
+    "mass": 1.0,
     "size": {
       "X": 6,
       "Y": 2,
@@ -23235,6 +23651,22 @@ const BrickData = {
       "Z": 2
     }
   },
+  "64867": {
+    "id": 64867,
+    "name": "ROOf ROCK TILE 4X4  W.ANGLE",
+    "img": "T_64867_Icon",
+    "aliases": [
+      64867,
+      28625,
+      29383
+    ],
+    "mass": 80.26123,
+    "size": {
+      "X": 4,
+      "Y": 4,
+      "Z": 3
+    }
+  },
   "64951": {
     "id": 64951,
     "name": "TUB",
@@ -23352,7 +23784,7 @@ const BrickData = {
   "65474": {
     "id": 65474,
     "name": "TILE 6X8, CIRCLE, NO. 1",
-    "img": "Unknown",
+    "img": "T_65474_Icon",
     "aliases": [
       65474
     ],
@@ -23388,6 +23820,20 @@ const BrickData = {
     "size": {
       "X": 1,
       "Y": 1,
+      "Z": 3
+    }
+  },
+  "65617": {
+    "id": 65617,
+    "name": "1/4 ARCH BRICK 3X3, W/ CUTOUT, NO. 1",
+    "img": "Unknown",
+    "aliases": [
+      65617
+    ],
+    "mass": 33.569336,
+    "size": {
+      "X": 3,
+      "Y": 3,
       "Z": 3
     }
   },
@@ -23447,6 +23893,20 @@ const BrickData = {
       "Z": 7
     }
   },
+  "65826": {
+    "id": 65826,
+    "name": "4.85 BUSH,W/ SINGLE TUBE",
+    "img": "Unknown",
+    "aliases": [
+      65826
+    ],
+    "mass": 3.0517578,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 2
+    }
+  },
   "65886": {
     "id": 65886,
     "name": "PLATE 2X3 W/ HOLDER",
@@ -23454,7 +23914,7 @@ const BrickData = {
     "aliases": [
       65886
     ],
-    "mass": 46.447495,
+    "mass": 1.0,
     "size": {
       "X": 4,
       "Y": 2,
@@ -23492,7 +23952,7 @@ const BrickData = {
   "66792": {
     "id": 66792,
     "name": "PLATE, 4X4X2/3, CIRCLE, W/ REDUCED KNOBS",
-    "img": "Unknown",
+    "img": "T_66792_Icon",
     "aliases": [
       66792
     ],
@@ -23549,7 +24009,7 @@ const BrickData = {
   "66956": {
     "id": 66956,
     "name": "PLATE W/ BOW 2X2X2/3, 45 DEG.",
-    "img": "Unknown",
+    "img": "T_66956_Icon",
     "aliases": [
       66956,
       75468
@@ -23592,7 +24052,7 @@ const BrickData = {
   "67329": {
     "id": 67329,
     "name": "BRICK 1X2X1 2/3, W/ 8 KNOBS",
-    "img": "Unknown",
+    "img": "T_67329_Icon",
     "aliases": [
       67329
     ],
@@ -23704,7 +24164,7 @@ const BrickData = {
   "68869": {
     "id": 68869,
     "name": "TILE 4X4X2/3, CIRCLE, W/O KNOBS",
-    "img": "Unknown",
+    "img": "T_68869_Icon",
     "aliases": [
       68869
     ],
@@ -24070,6 +24530,20 @@ const BrickData = {
       "Z": 3
     }
   },
+  "73111": {
+    "id": 73111,
+    "name": "DESIGN ELEMENT 3X3X2,W/ CROSS HOLE,NO. 1",
+    "img": "Unknown",
+    "aliases": [
+      73111
+    ],
+    "mass": 91.552734,
+    "size": {
+      "X": 3,
+      "Y": 3,
+      "Z": 6
+    }
+  },
   "73230": {
     "id": 73230,
     "name": "BRICK 1X1, W/ CROSS HOLE     ",
@@ -24241,6 +24715,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "75902": {
+    "id": 75902,
+    "name": "SHIELD",
+    "img": "Unknown",
+    "aliases": [
+      75902
+    ],
+    "mass": 17.700195,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 6
+    }
+  },
   "75937": {
     "id": 75937,
     "name": "PARABOLIC RING",
@@ -24262,7 +24750,7 @@ const BrickData = {
     "aliases": [
       75974
     ],
-    "mass": 693.91046,
+    "mass": 1.0,
     "size": {
       "X": 8,
       "Y": 4,
@@ -24595,7 +25083,7 @@ const BrickData = {
   "79387": {
     "id": 79387,
     "name": "PLATE 4X4X2/3, CIRCLE, 2X2 HOLE",
-    "img": "Unknown",
+    "img": "T_79387_Icon",
     "aliases": [
       79387
     ],
@@ -24746,6 +25234,62 @@ const BrickData = {
       "Z": 3
     }
   },
+  "80274": {
+    "id": 80274,
+    "name": "RIGHT PANEL 5X4",
+    "img": "T_80274_Icon",
+    "aliases": [
+      80274
+    ],
+    "mass": 49.1333,
+    "size": {
+      "X": 4,
+      "Y": 2,
+      "Z": 12
+    }
+  },
+  "80278": {
+    "id": 80278,
+    "name": "LEFT PANEL 5X4",
+    "img": "T_80278_Icon",
+    "aliases": [
+      80278
+    ],
+    "mass": 49.1333,
+    "size": {
+      "X": 4,
+      "Y": 2,
+      "Z": 12
+    }
+  },
+  "80286": {
+    "id": 80286,
+    "name": "SHELL 5X1X2, W/ CROSS HOLE",
+    "img": "T_80286_Icon",
+    "aliases": [
+      80286
+    ],
+    "mass": 61.035156,
+    "size": {
+      "X": 5,
+      "Y": 1,
+      "Z": 5
+    }
+  },
+  "80441": {
+    "id": 80441,
+    "name": "WHEEL 17.6X3.9, W/ 4.85 HOLE",
+    "img": "Unknown",
+    "aliases": [
+      80441
+    ],
+    "mass": 1.0,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 6
+    }
+  },
   "80497": {
     "id": 80497,
     "name": "ELEPHANT TRUNK",
@@ -24758,6 +25302,20 @@ const BrickData = {
       "X": 3,
       "Y": 1,
       "Z": 9
+    }
+  },
+  "80796": {
+    "id": 80796,
+    "name": "BRICK 1X2X2, W/ 8 KNOBS",
+    "img": "Unknown",
+    "aliases": [
+      80796
+    ],
+    "mass": 43.640137,
+    "size": {
+      "X": 2,
+      "Y": 1,
+      "Z": 5
     }
   },
   "81911": {
@@ -25497,7 +26055,7 @@ const BrickData = {
     "aliases": [
       87691
     ],
-    "mass": 5.1163416,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -25587,6 +26145,21 @@ const BrickData = {
       "X": 7,
       "Y": 4,
       "Z": 5
+    }
+  },
+  "87761": {
+    "id": 87761,
+    "name": "RACK 7 M",
+    "img": "T_87761_Icon",
+    "aliases": [
+      65127,
+      87761
+    ],
+    "mass": 54.93164,
+    "size": {
+      "X": 7,
+      "Y": 1,
+      "Z": 2
     }
   },
   "87826": {
@@ -25706,6 +26279,20 @@ const BrickData = {
       "Z": 1
     }
   },
+  "87996": {
+    "id": 87996,
+    "name": "HORN CRUISER",
+    "img": "T_87996_Icon",
+    "aliases": [
+      87996
+    ],
+    "mass": 28.329935,
+    "size": {
+      "X": 1,
+      "Y": 1,
+      "Z": 7
+    }
+  },
   "88049": {
     "id": 88049,
     "name": "TRIANGLE W. Ø3.2 SHAFT",
@@ -25713,7 +26300,7 @@ const BrickData = {
     "aliases": [
       88049
     ],
-    "mass": 42.0702,
+    "mass": 1.0,
     "size": {
       "X": 3,
       "Y": 3,
@@ -25760,6 +26347,20 @@ const BrickData = {
       "X": 2,
       "Y": 2,
       "Z": 3
+    }
+  },
+  "88289": {
+    "id": 88289,
+    "name": "CATAPULT ARM 1X4",
+    "img": "T_88289_Icon",
+    "aliases": [
+      88289
+    ],
+    "mass": 32.65381,
+    "size": {
+      "X": 4,
+      "Y": 2,
+      "Z": 2
     }
   },
   "88292": {
@@ -25992,6 +26593,20 @@ const BrickData = {
       "Z": 2
     }
   },
+  "89679": {
+    "id": 89679,
+    "name": "PANEL 2X1X1, NO. 1",
+    "img": "T_89679_Icon",
+    "aliases": [
+      89679
+    ],
+    "mass": 9.765625,
+    "size": {
+      "X": 1,
+      "Y": 2,
+      "Z": 2
+    }
+  },
   "89762": {
     "id": 89762,
     "name": "COCKPIT 19° BOWED",
@@ -26101,7 +26716,7 @@ const BrickData = {
     "aliases": [
       90391
     ],
-    "mass": 12.71877,
+    "mass": 1.0,
     "size": {
       "X": 1,
       "Y": 1,
@@ -26150,6 +26765,21 @@ const BrickData = {
       "X": 16,
       "Y": 8,
       "Z": 1
+    }
+  },
+  "90509": {
+    "id": 90509,
+    "name": "SKI 6M WITH KNOB",
+    "img": "T_90509_Icon",
+    "aliases": [
+      18744,
+      90509
+    ],
+    "mass": 16.479492,
+    "size": {
+      "X": 6,
+      "Y": 1,
+      "Z": 0
     }
   },
   "90540": {
@@ -28316,6 +28946,20 @@ const BrickData = {
       "Z": 7
     }
   },
+  "99774": {
+    "id": 99774,
+    "name": "UNDER CARRIAGE 1X4",
+    "img": "T_99774_Icon",
+    "aliases": [
+      99774
+    ],
+    "mass": 13.73291,
+    "size": {
+      "X": 4,
+      "Y": 1,
+      "Z": 1
+    }
+  },
   "99780": {
     "id": 99780,
     "name": "ANGULAR PLATE 1.5 BOT. 1X2 1/2",
@@ -28491,7 +29135,7 @@ const BrickData = {
     "aliases": [
       1013609
     ],
-    "mass": 242.84535,
+    "mass": 1.0,
     "size": {
       "X": 4,
       "Y": 2,
@@ -28505,7 +29149,7 @@ const BrickData = {
     "aliases": [
       1013649
     ],
-    "mass": 318.6399,
+    "mass": 1.0,
     "size": {
       "X": 6,
       "Y": 2,
@@ -28538,6 +29182,20 @@ const BrickData = {
       "X": 2,
       "Y": 0,
       "Z": 5
+    }
+  },
+  "1017280": {
+    "id": 1017280,
+    "name": "BAG, BASKET",
+    "img": "T_1017280_Icon",
+    "aliases": [
+      1017280
+    ],
+    "mass": 45.706886,
+    "size": {
+      "X": 2,
+      "Y": 2,
+      "Z": 4
     }
   },
   "1022315": {
