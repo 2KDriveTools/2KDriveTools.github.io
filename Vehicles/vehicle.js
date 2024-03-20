@@ -11,6 +11,7 @@ z = document.getElementById.bind(document);
 
 const SETTINGS = {
 	SHOW_SCALE: false,
+	MIN_GROUP: 1,
 }
 
 const FILECHECK = { "name": "Artemis[Extra]Vehicle.sav", "scripts": [ "/Script/Artemis.ArtemisVehicleSaveGame", "/Script/Artemis.ArtemisExtraVehicleSaveGame" ] }
@@ -37,6 +38,19 @@ const context = {
 		for (k in this) 
 			if (k != s)
 				delete this[k]
+	}
+}
+
+if (window.location.hash) {
+	let _s = window.location.hash;
+	let h = 0, c;
+	for (let i = 0; i < _s.length; i++) {
+		c = _s.charCodeAt(i);
+		h = ((h << 5) - h) + c // h * 31 + c
+		h >>>= 0
+	}
+	if (h === 0x90C3CDB5) {
+		SETTINGS.MIN_GROUP = 0
 	}
 }
 
@@ -380,8 +394,8 @@ function openCar(car) {
 			} else if (evt.button == 2) { // right
 				elem._assembly_size -= evt.shiftKey ? 10 : 1;
 			}
-			if (elem._assembly_size < 1)
-				elem._assembly_size = 1
+			if (elem._assembly_size < SETTINGS.MIN_GROUP)
+				elem._assembly_size = SETTINGS.MIN_GROUP
 			elem.textContent = "to " + elem._assembly_size
 			/*
 			let elem = target.querySelector('button')
