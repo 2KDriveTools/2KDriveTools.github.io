@@ -30,10 +30,9 @@ class GVASWriter {
 		this.propLen = 0;
 	}
 	
-	writeBytes(bytes) {
-		
-	}
-	writeChar(c, count = false) {
+	writeBytes(bytes) {}
+	
+	writeChar(value, count = true) {
 		let arrayBuffer     = new Uint8Array(1);
 			arrayBuffer[0]  = (value & 0xff);
 		
@@ -43,15 +42,25 @@ class GVASWriter {
 		this.propLen++;
 		
 		return String.fromCharCode.apply(null, arrayBuffer);
-	}
-	writeUChar(c, count = false) {
-		return writeChar(c, count)
-	}
-	writeBool(b, count = false) { return this.writeUChar(b ? 1 : 0, count) }
-	writeInt8(i, count = false) { return writeChar(i, count) }
-	writeUInt8(u, count = false) { return this.writeUChar(u) }
+	} writeUChar(value, count = true) { return this.writeChar(value, count) }
+	writeBool(value, count = true) { return this.writeChar(value ? 1 : 0, count) }
+	writeInt8(value, count = true) { return this.writeChar(value, count) }
+	writeUInt8(value, count = true) { return this.writeChar(value, count) }
 	
-	writeInt32() {
+	writeInt16(value, count = true) {
+        let arrayBuffer     = new Uint8Array(2);
+            arrayBuffer[1]  = (value >>> 8);
+            arrayBuffer[0]  = (value & 0xff);
+
+        if (count === true) {
+            this.bufLen += 2;
+        }
+        this.propLen += 2;
+
+        return String.fromCharCode.apply(null, arrayBuffer);
+	} writeUInt16(value, count = true) { this.writeInt16(value, count) }
+
+	writeInt32(value, count = true) {
         let arrayBuffer     = new Uint8Array(4);
             arrayBuffer[3]  = (value >>> 24);
             arrayBuffer[2]  = (value >>> 16);
@@ -64,9 +73,58 @@ class GVASWriter {
         this.propLen += 4;
 
         return String.fromCharCode.apply(null, arrayBuffer);
+	} writeUInt32(value, count = true) { return this.writeInt32(value, count) }
+
+	writeInt64(value, count = true) {
+        let arrayBuffer     = new Uint8Array(8);
+            arrayBuffer[7]  = (value >>> 56);
+            arrayBuffer[6]  = (value >>> 48);
+            arrayBuffer[5]  = (value >>> 40);
+            arrayBuffer[4]  = (value >>> 32);
+            arrayBuffer[3]  = (value >>> 24);
+            arrayBuffer[2]  = (value >>> 16);
+            arrayBuffer[1]  = (value >>> 8);
+            arrayBuffer[0]  = (value & 0xff);
+
+        if (count === true) {
+            this.bufLen += 8;
+        }
+        this.propLen += 8;
+
+        return String.fromCharCode.apply(null, arrayBuffer);
+	} writeUInt64(value, count = true) { return this.writeInt64(value, count) }
+	
+	writeFloat(value, count = true) {
+		let arrayBuffer     = new ArrayBuffer(4);
+		let dataView        = new DataView(arrayBuffer);
+			dataView.setFloat32(0, value, true);
+	
+		if(count === true) {
+			this.bufLen += 4;
+		}
+		this.propLen += 4;
+	
+		return String.fromCharCode.apply(null, new Uint8Array(arrayBuffer));
 	}
 	
+	writeDouble(value, count = true) {
+		let arrayBuffer     = new ArrayBuffer(8);
+		let dataView        = new DataView(arrayBuffer);
+			dataView.setFloat64(0, value, true);
 	
+		if(count === true) {
+			this.bufLen += 8;
+		}
+		this.propLen += 8;
+	
+		return String.fromCharCode.apply(null, new Uint8Array(arrayBuffer));
+	}
+	writeProperty(prop, parent = null) {
+		// writeString // name
+		// writeString // type
+		// writeUInt32 // size
+		
+	}
 }
 class GVASReader {
 	#ofs = 0;
