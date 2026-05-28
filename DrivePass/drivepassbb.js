@@ -56,10 +56,17 @@ function readSave() {
 
 	ofs = global.data.find('LastSeenDPXPs\0\x0E\0\0\0ArrayProperty\0')
 	if (ofs > 0) {
-		ofs += 0x3D
-		global.data.setUint32(ofs, 100, true)
-		modalContent.textContent = `Set DrivePass claimed XP to 100` 
+		ofs += 0x39
+		let sz = global.data.getUint32(ofs, true)
+		ofs += 4
+		modalContent.innerHTML = ""
+		for (let i = 0; i < sz; i++) {
+			global.data.setUint32(ofs + 4 * i, 100, true)
 
+			let s = document.createElement("li")
+			s.innerText = `Set DrivePass ${i+1} claimed XP to 100` 
+			modalContent.appendChild(s)
+		}
 		let _div = document.createElement("div")
 		_div.classList.add("modal-download-button")
 		
